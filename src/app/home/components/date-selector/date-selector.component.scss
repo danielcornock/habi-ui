@@ -1,0 +1,44 @@
+@import 'src/assets/styles/themes.scss';
+
+.DateSelector {
+  &-container {
+    display: flex;
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  &-item {
+    background-color: $color-date-button-bg;
+    color: $color-date-button-text;
+    border-radius: $br-sm;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+
+    &:hover {
+      background-color: darken($color-date-button-bg, 2%);
+    }
+
+    & + & {
+      margin-left: $spacing-8;
+    }
+
+    &.is-selected {
+      border-color: $color-highlight;
+      color: $color-highlight;
+      box-shadow: inset 0 0 0 2px $color-highlight;
+      background-color: transparent;
+    }
+  }
+
+  &-date {
+    font-size: 18px;
+  }
+
+  &-day {
+    font-size: 10px;
+  }
+}

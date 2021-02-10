@@ -1,0 +1,11 @@
+<div class="NavMenu-container">
+  <a
+    class="NavMenu-item"
+    *ngFor="let link of links"
+    [routerLink]="link.link"
+    routerLinkActive="is-active"
+  >
+    <i-feather class="NavMenu-icon" [name]="link.icon"></i-feather>
+    <p class="NavMenu-label">{{ link.label }}</p>
+  </a>
+</div>

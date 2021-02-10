@@ -1,0 +1,24 @@
+@import 'src/assets/styles/themes.scss';
+
+.App {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &-header {
+    display: block;
+  }
+
+  &-scrollView {
+    overflow-y: auto;
+    flex: 1 1 100%;
+    padding: 0 $spacing-12 $spacing-12;
+  }
+
+  &-nav {
+    display: block;
+    margin-top: auto;
+  }
+}

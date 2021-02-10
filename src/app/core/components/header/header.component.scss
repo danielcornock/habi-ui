@@ -1,0 +1,24 @@
+@import 'src/assets/styles/themes.scss';
+
+.Header {
+  &-title {
+    font-size: $font-sizing-title;
+    line-height: 1;
+  }
+
+  &-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: $spacing-20 $spacing-12;
+  }
+
+  &-action {
+    color: $color-highlight;
+    line-height: 1;
+
+    i-feather {
+      @include icon(28px);
+    }
+  }
+}

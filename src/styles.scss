@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'src/assets/styles/themes.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+button,
+a {
+  @include button-reset;
+
+  &:focus {
+    outline: none;
+  }
+}

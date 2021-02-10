@@ -1,0 +1,32 @@
+@import 'src/assets/styles/themes.scss';
+
+.NavMenu {
+  &-container {
+    display: flex;
+  }
+
+  &-item {
+    @include button-reset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 100%;
+    padding: $spacing-12;
+    color: $color-date-button-text;
+
+    &.is-active {
+      color: $color-highlight;
+    }
+  }
+
+  &-icon {
+    display: block;
+    margin-bottom: $spacing-4;
+    height: 20px;
+    width: 20px;
+  }
+
+  &-label {
+    font-size: $spacing-12;
+  }
+}

@@ -1,0 +1,16 @@
+@import 'src/assets/styles/themes.scss';
+
+.Home {
+  &-dateSelector {
+    margin-bottom: $spacing-20;
+    display: block;
+  }
+
+  &-habit {
+    display: block;
+
+    & + & {
+      margin-top: $spacing-12;
+    }
+  }
+}

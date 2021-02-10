@@ -1,0 +1,46 @@
+@import 'src/assets/styles/themes.scss';
+
+.DailyHabit {
+  $cmp: &;
+
+  &-container {
+    box-shadow: 0 0px 2px 1px $color-border;
+    border-radius: $br-sm;
+    padding: 0 $spacing-16;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &.is-completed {
+      background-color: $color-item-completed-bg;
+
+      #{$cmp}-check {
+        background-color: $color-highlight;
+        color: $color-white;
+        box-shadow: 0;
+      }
+    }
+  }
+
+  &-title {
+    font-weight: 500;
+  }
+
+  &-check {
+    height: 24px;
+    width: 24px;
+    box-shadow: 0 0px 2px 1px $color-border;
+    border-radius: $br-max;
+    color: $color-grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    height: 16px;
+    width: 16px;
+  }
+}
