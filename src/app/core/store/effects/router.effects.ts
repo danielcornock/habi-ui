@@ -15,8 +15,6 @@ export class RouterEffects {
       this.actions$.pipe(
         ofType(ROUTER_NAVIGATION),
         tap((action: RouterNavigationAction<RouterState>) => {
-          console.log(action);
-
           this.titleService.setTitle(action.payload.routerState.data.title);
         })
       ),

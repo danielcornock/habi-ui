@@ -6,8 +6,15 @@
   <habi-daily-habit
     class="Home-habit"
     *ngFor="let habit of habits$ | async"
+    [title]="habit.template.title"
+    [isCompleted]="true"
+    (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
+  ></habi-daily-habit>
+  <habi-daily-habit
+    class="Home-habit"
+    *ngFor="let habit of incompleteHabit$ | async"
     [title]="habit.title"
-    [isCompleted]="!!habit.completedAt"
-    (toggleCompleted)="onToggleCompleted()"
+    (toggleCompleted)="onToggleCompleted(habit.id)"
+    [isCompleted]="false"
   ></habi-daily-habit>
 </div>

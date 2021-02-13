@@ -5,6 +5,8 @@ import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/route
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { HabitRecordsEffects } from './effects/habit-records.effects';
+import { HabitTemplatesEffects } from './effects/habit-templates.effects';
 import { RouterEffects } from './effects/router.effects';
 import { rootReducer } from './reducers/root.reducer';
 import { RouterSerializer } from './utils/router-serializer';
@@ -13,7 +15,11 @@ import { RouterSerializer } from './utils/router-serializer';
   declarations: [],
   imports: [
     StoreModule.forRoot(rootReducer),
-    EffectsModule.forRoot([RouterEffects]),
+    EffectsModule.forRoot([
+      RouterEffects,
+      HabitRecordsEffects,
+      HabitTemplatesEffects
+    ]),
     StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot({
       serializer: RouterSerializer,

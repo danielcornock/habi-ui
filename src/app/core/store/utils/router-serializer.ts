@@ -5,8 +5,6 @@ import { RouterState } from '../models/router-state.model';
 
 export class RouterSerializer implements RouterStateSerializer<RouterState> {
   serialize(routerState: RouterStateSnapshot): RouterState {
-    console.log(routerState);
-
     let route = routerState.root;
 
     while (route.firstChild) {

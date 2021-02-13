@@ -17,5 +17,6 @@ export class DailyHabitComponent {
 
   public onClick(): void {
     this.toggleCompleted.emit();
+    this.isCompleted = !this.isCompleted;
   }
 }
