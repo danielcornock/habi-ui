@@ -1,20 +1,19 @@
 @import 'src/assets/styles/themes.scss';
 
-.Home {
-  &-container {
+.home {
+  &__container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 12px;
   }
 
-  &-dateSelector {
+  &__date-selector {
     @include page-container;
     margin-bottom: $spacing-20;
     display: block;
   }
 
-  &-habit {
+  &__habit {
     display: block;
 
     & + & {
@@ -22,7 +21,7 @@
     }
   }
 
-  &-habitsList {
+  &__habits-list {
     overflow-y: auto;
     @include page-container;
     padding-top: 1px;

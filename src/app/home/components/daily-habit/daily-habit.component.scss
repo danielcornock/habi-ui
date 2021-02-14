@@ -1,9 +1,9 @@
 @import 'src/assets/styles/themes.scss';
 
-.DailyHabit {
+.daily-habit {
   $cmp: &;
 
-  &-container {
+  &__container {
     box-shadow: 0 0px 2px 1px $color-border;
     border-radius: $br-sm;
     padding: 0 $spacing-16;
@@ -24,11 +24,11 @@
     }
   }
 
-  &-title {
+  &__title {
     font-weight: 500;
   }
 
-  &-check {
+  &__check {
     height: 24px;
     width: 24px;
     box-shadow: 0 0px 2px 1px $color-border;
@@ -39,7 +39,7 @@
     justify-content: center;
   }
 
-  &-icon {
+  &__icon {
     height: 16px;
     width: 16px;
   }

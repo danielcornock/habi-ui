@@ -1,11 +1,11 @@
-<div class="DateSelector-container">
+<div class="date-selector__container">
   <button
-    class="DateSelector-item"
+    class="date-selector__item"
     *ngFor="let date of dates"
     (click)="onSelect(date)"
     [class.is-selected]="date === selectedDate"
   >
-    <p class="DateSelector-day">{{ date.weekdayShort }}</p>
-    <p class="DateSelector-date">{{ date.toString() | date: 'dd' }}</p>
+    <p class="date-selector__day">{{ date.weekdayShort }}</p>
+    <p class="date-selector__date">{{ date.toString() | date: 'dd' }}</p>
   </button>
 </div>

@@ -1,18 +1,18 @@
-<div class="Home-container">
+<div class="home__container">
   <habi-date-selector
-    class="Home-dateSelector"
+    class="home__date-selector"
     (selectDate)="onSelectDate($event)"
   ></habi-date-selector>
-  <div class="Home-habitsList">
+  <div class="home__habits-list">
     <habi-daily-habit
-      class="Home-habit"
+      class="home__habit"
       *ngFor="let habit of habits$ | async"
       [title]="habit.template.title"
       [isCompleted]="true"
       (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
     ></habi-daily-habit>
     <habi-daily-habit
-      class="Home-habit"
+      class="home__habit"
       *ngFor="let habit of incompleteHabit$ | async"
       [title]="habit.title"
       (toggleCompleted)="onToggleCompleted(habit.id)"

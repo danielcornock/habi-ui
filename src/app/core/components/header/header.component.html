@@ -1,7 +1,7 @@
-<div class="Header-container">
-  <h1 class="Header-title">{{ title$ | async }}</h1>
+<div class="header__container">
+  <h1 class="header__title">{{ title$ | async }}</h1>
   <button
-    class="Header-action"
+    class="header__action"
     *ngIf="headerAction$ | async as action"
     (click)="action.action()"
   >

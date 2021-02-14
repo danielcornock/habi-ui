@@ -1,13 +1,13 @@
 @import 'src/assets/styles/themes.scss';
 
-.DateSelector {
-  &-container {
+.date-selector {
+  &__container {
     display: flex;
     overflow-x: scroll;
     width: 100%;
   }
 
-  &-item {
+  &__item {
     background-color: $color-date-button-bg;
     color: $color-date-button-text;
     border-radius: $br-sm;
@@ -34,11 +34,11 @@
     }
   }
 
-  &-date {
+  &__date {
     font-size: 18px;
   }
 
-  &-day {
+  &__day {
     font-size: 10px;
   }
 }

@@ -1,10 +1,10 @@
 <button
-  class="DailyHabit-container"
+  class="daily-habit__container"
   [class.is-completed]="isCompleted"
   (click)="onClick()"
 >
-  <p class="DailyHabit-title">{{ title }}</p>
-  <div class="DailyHabit-check">
-    <i-feather class="DailyHabit-icon" name="check"></i-feather>
+  <p class="daily-habit__title">{{ title }}</p>
+  <div class="daily-habit__check">
+    <i-feather class="daily-habit__icon" name="check"></i-feather>
   </div>
 </button>

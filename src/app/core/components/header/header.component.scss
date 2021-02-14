@@ -1,19 +1,19 @@
 @import 'src/assets/styles/themes.scss';
 
-.Header {
-  &-title {
+.header {
+  &__title {
     font-size: $font-sizing-title;
     line-height: 1;
   }
 
-  &-container {
+  &__container {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     padding: $spacing-20 $spacing-12;
   }
 
-  &-action {
+  &__action {
     color: $color-highlight;
     line-height: 1;
 

@@ -1,11 +1,11 @@
 @import 'src/assets/styles/themes.scss';
 
-.NavMenu {
-  &-container {
+.nav-menu {
+  &__container {
     display: flex;
   }
 
-  &-item {
+  &__item {
     @include button-reset;
     display: flex;
     flex-direction: column;
@@ -19,14 +19,14 @@
     }
   }
 
-  &-icon {
+  &__icon {
     display: block;
     margin-bottom: $spacing-4;
     height: 20px;
     width: 20px;
   }
 
-  &-label {
+  &__label {
     font-size: $spacing-12;
   }
 }
