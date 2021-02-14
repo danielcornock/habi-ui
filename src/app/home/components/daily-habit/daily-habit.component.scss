@@ -16,7 +16,7 @@
     &.is-completed {
       background-color: $color-item-completed-bg;
 
-      #{$cmp}-check {
+      #{$cmp}__check {
         background-color: $color-highlight;
         color: $color-white;
         box-shadow: 0;
