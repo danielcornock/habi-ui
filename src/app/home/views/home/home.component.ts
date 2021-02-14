@@ -1,15 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { DateTime } from 'luxon';
 import { Observable } from 'rxjs';
 import { CoreActions } from 'src/app/core/store/actions/core.actions';
 import { HabitRecordsActions } from 'src/app/core/store/actions/habit-records.actions';
+import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
 import { RootState } from 'src/app/core/store/models/root-state.model';
 import { HabitRecordsSelectors } from 'src/app/core/store/selectors/habit-records.selectors';
 import { HabitRecordResponse } from 'src/app/habits/interfaces/habit-record-response.interface';
 import { HabitTemplateResponse } from 'src/app/habits/interfaces/habit-template-response.interface';
 import { HabitsStoreService } from 'src/app/habits/services/habits-store/habits-store.service';
+import { ModalService } from 'src/app/shared/modal/services/modal/modal.service';
 
 @Component({
   selector: 'habi-home',
@@ -24,8 +25,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<RootState>,
-    private router: Router,
-    private habitsStoreService: HabitsStoreService
+    private habitsStoreService: HabitsStoreService,
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +36,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         headerAction: {
           icon: 'plus',
           action: () => {
-            this.router.navigateByUrl('home/create-habit');
+            this.store.dispatch(
+              HabitTemplatesActions.openTemplateCreationForm()
+            );
           }
         }
       })

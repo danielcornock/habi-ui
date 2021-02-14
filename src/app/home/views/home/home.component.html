@@ -1,20 +1,22 @@
-<habi-date-selector
-  class="Home-dateSelector"
-  (selectDate)="onSelectDate($event)"
-></habi-date-selector>
-<div class="Home-habitsList">
-  <habi-daily-habit
-    class="Home-habit"
-    *ngFor="let habit of habits$ | async"
-    [title]="habit.template.title"
-    [isCompleted]="true"
-    (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
-  ></habi-daily-habit>
-  <habi-daily-habit
-    class="Home-habit"
-    *ngFor="let habit of incompleteHabit$ | async"
-    [title]="habit.title"
-    (toggleCompleted)="onToggleCompleted(habit.id)"
-    [isCompleted]="false"
-  ></habi-daily-habit>
+<div class="Home-container">
+  <habi-date-selector
+    class="Home-dateSelector"
+    (selectDate)="onSelectDate($event)"
+  ></habi-date-selector>
+  <div class="Home-habitsList">
+    <habi-daily-habit
+      class="Home-habit"
+      *ngFor="let habit of habits$ | async"
+      [title]="habit.template.title"
+      [isCompleted]="true"
+      (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
+    ></habi-daily-habit>
+    <habi-daily-habit
+      class="Home-habit"
+      *ngFor="let habit of incompleteHabit$ | async"
+      [title]="habit.title"
+      (toggleCompleted)="onToggleCompleted(habit.id)"
+      [isCompleted]="false"
+    ></habi-daily-habit>
+  </div>
 </div>

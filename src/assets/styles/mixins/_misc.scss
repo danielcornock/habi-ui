@@ -1,0 +1,16 @@
+@mixin icon($size) {
+  height: $size;
+  width: $size;
+  font-size: $size;
+  line-height: 1;
+}
+
+@mixin circle($size) {
+  height: $size;
+  width: $size;
+  border-radius: $br-max;
+}
+
+@mixin page-container {
+  padding: 0 12px;
+}

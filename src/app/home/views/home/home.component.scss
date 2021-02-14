@@ -1,7 +1,15 @@
 @import 'src/assets/styles/themes.scss';
 
 .Home {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 12px;
+  }
+
   &-dateSelector {
+    @include page-container;
     margin-bottom: $spacing-20;
     display: block;
   }
@@ -12,5 +20,11 @@
     & + & {
       margin-top: $spacing-12;
     }
+  }
+
+  &-habitsList {
+    overflow-y: auto;
+    @include page-container;
+    padding-top: 1px;
   }
 }

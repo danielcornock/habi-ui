@@ -4,6 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ModalModule } from 'src/app/shared/modal/modal.module';
 
 import { HabitRecordsEffects } from './effects/habit-records.effects';
 import { HabitTemplatesEffects } from './effects/habit-templates.effects';
@@ -25,7 +26,8 @@ import { RouterSerializer } from './utils/router-serializer';
       serializer: RouterSerializer,
       navigationActionTiming: NavigationActionTiming.PostActivation
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: []

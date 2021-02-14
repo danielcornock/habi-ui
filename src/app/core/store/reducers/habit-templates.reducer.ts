@@ -14,6 +14,12 @@ const reducer = createReducer(
       ...state,
       templates: action.templates
     };
+  }),
+  on(HabitTemplatesActions.createTemplateSuccess, (state, action) => {
+    return {
+      ...state,
+      templates: [...state.templates, action.template]
+    };
   })
 );
 

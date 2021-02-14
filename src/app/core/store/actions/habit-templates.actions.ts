@@ -8,7 +8,18 @@ const fetchTemplatesSuccess = createAction(
   props<{ templates: Array<HabitTemplateResponse> }>()
 );
 
+const createTemplateSuccess = createAction(
+  '[Habit Templates] Create template success',
+  props<{ template: HabitTemplateResponse }>()
+);
+
+const openTemplateCreationForm = createAction(
+  '[Habit Templates] Open template creation form'
+);
+
 export const HabitTemplatesActions = {
   fetchTemplates,
-  fetchTemplatesSuccess
+  fetchTemplatesSuccess,
+  openTemplateCreationForm,
+  createTemplateSuccess
 };

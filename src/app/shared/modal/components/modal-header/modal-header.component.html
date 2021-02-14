@@ -1,0 +1,17 @@
+<div class="modal-header__container">
+  <h1 class="modal-header__title">
+    <ng-content></ng-content>
+  </h1>
+  <div class="modal-header__buttons">
+    <button class="modal-header__back" (click)="closeModal()">
+      <i-feather name="chevron-left"></i-feather>
+    </button>
+    <button
+      class="modal-header__action"
+      *ngIf="action"
+      (click)="action.action()"
+    >
+      {{ action.label }}
+    </button>
+  </div>
+</div>
