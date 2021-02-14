@@ -3,3 +3,17 @@
   height: 100vh;
   padding: 24px 12px !important;
 }
+
+.mat-bottom-sheet-container {
+  opacity: 0;
+  animation: fade-in 300ms forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -46,6 +46,11 @@ export class CreateHabitModalComponent implements OnInit {
   }
 
   private createTemplate(): void {
+    if (this.form.isInvalid) {
+      this.form.formGroup.markAllAsTouched();
+      return;
+    }
+
     this.habitsApiService
       .createHabitTemplate(this.form.getField('title').value)
       .subscribe((data) => {
