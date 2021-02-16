@@ -34,6 +34,22 @@ export class CreateHabitModalComponent implements OnInit {
         validators: {
           required: true
         }
+      },
+      {
+        name: 'color',
+        label: 'Colour',
+        defaultValue: '#aa11ee',
+        validators: {
+          required: true
+        }
+      },
+      {
+        name: 'flair',
+        label: 'Emoji',
+        defaultValue: '⚽️',
+        validators: {
+          required: true
+        }
       }
     ]);
   }
@@ -52,7 +68,7 @@ export class CreateHabitModalComponent implements OnInit {
     }
 
     this.habitsApiService
-      .createHabitTemplate(this.form.getField('title').value)
+      .createHabitTemplate(this.form.value)
       .subscribe((data) => {
         this.bottomSheetRef.dismiss(data.data);
       });

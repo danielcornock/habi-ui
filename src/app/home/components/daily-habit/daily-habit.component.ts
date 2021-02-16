@@ -12,6 +12,12 @@ export class DailyHabitComponent {
   @Input()
   isCompleted: boolean;
 
+  @Input()
+  flair: string;
+
+  @Input()
+  color: string;
+
   @Output()
   toggleCompleted = new EventEmitter<void>();
 

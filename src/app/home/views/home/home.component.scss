@@ -15,10 +15,7 @@
 
   &__habit {
     display: block;
-
-    & + & {
-      margin-top: $spacing-12;
-    }
+    margin-bottom: $spacing-12;
   }
 
   &__habits-list {

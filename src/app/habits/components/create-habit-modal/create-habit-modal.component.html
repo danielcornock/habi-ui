@@ -2,5 +2,10 @@
   <habi-modal-header [action]="action">Create Habit</habi-modal-header>
   <form [formGroup]="form.formGroup" class="create-habit-modal__form">
     <ngx-form-input [formInputField]="form.fields[0]"></ngx-form-input>
+    <ngx-form-input-color
+      [formInputField]="form.fields[1]"
+    ></ngx-form-input-color>
+
+    <ngx-form-input [formInputField]="form.fields[2]"></ngx-form-input>
   </form>
 </div>

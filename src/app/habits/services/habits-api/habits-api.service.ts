@@ -43,9 +43,11 @@ export class HabitsApiService {
     return this.httpService.delete(`habit-records/${recordId}`);
   }
 
-  public createHabitTemplate(
-    title: string
-  ): HttpResponse<HabitTemplateResponse> {
-    return this.httpService.post('habit-templates', { title });
+  public createHabitTemplate(template: {
+    title: string;
+    flair: string;
+    color: string;
+  }): HttpResponse<HabitTemplateResponse> {
+    return this.httpService.post('habit-templates', template);
   }
 }

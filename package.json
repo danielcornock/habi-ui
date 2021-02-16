@@ -28,7 +28,8 @@
     "angular-feather": "^6.1.0",
     "lodash": "^4.17.20",
     "luxon": "^1.25.0",
-    "ngx-form-trooper": "^0.15.0",
+    "ngx-form-trooper": "^0.16.0",
+    "ngx-quill": "^13.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

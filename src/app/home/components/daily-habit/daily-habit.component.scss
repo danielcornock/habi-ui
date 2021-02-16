@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    border-left: 8px solid var(--habitColor, $color-highlight);
 
     &.is-completed {
       background-color: $color-item-completed-bg;
