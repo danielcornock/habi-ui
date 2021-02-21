@@ -35,6 +35,25 @@ export class HabitRecordsEffects {
     )
   );
 
+  fetchMonthlyHabits$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(HabitRecordsActions.fetchMonthlyHabits),
+      switchMap(({ month }) => {
+        const firstDay = DateTime.fromISO(month);
+        return this.habitsApiService
+          .getHabitsInRange(
+            firstDay.toISODate(),
+            firstDay.set({ day: 31 }).toISODate()
+          )
+          .pipe(
+            map(({ data }) =>
+              HabitRecordsActions.fetchWeeklyHabitsSuccess({ records: data })
+            )
+          );
+      })
+    )
+  );
+
   setHabitCompleted$ = createEffect(() =>
     this.actions$.pipe(
       ofType(HabitRecordsActions.setHabitCompleted),
@@ -54,16 +73,14 @@ export class HabitRecordsEffects {
     this.actions$.pipe(
       ofType(HabitRecordsActions.setHabitIncomplete),
       switchMap(({ recordId, completedOn }) => {
-        return this.habitsApiService
-          .setHabitIncomplete(recordId)
-          .pipe(
-            map(() =>
-              HabitRecordsActions.setHabitIncompleteSuccess({
-                recordId,
-                completedOn
-              })
-            )
-          );
+        return this.habitsApiService.setHabitIncomplete(recordId).pipe(
+          map(() =>
+            HabitRecordsActions.setHabitIncompleteSuccess({
+              recordId,
+              completedOn
+            })
+          )
+        );
       })
     )
   );

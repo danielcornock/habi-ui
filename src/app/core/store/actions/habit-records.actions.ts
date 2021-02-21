@@ -29,11 +29,23 @@ const setHabitIncompleteSuccess = createAction(
   props<{ recordId: string; completedOn: string }>()
 );
 
+const fetchMonthlyHabits = createAction(
+  '[Habit Records] Fetch monthly habits',
+  props<{ month: string }>()
+);
+
+const fetchMonthlyHabitsSuccess = createAction(
+  '[Habit Records] Fetch monthly habits success',
+  props<{ records: WeeklyHabitRecordResponse }>()
+);
+
 export const HabitRecordsActions = {
   fetchWeeklyHabits,
   fetchWeeklyHabitsSuccess,
   setHabitCompleted,
   setHabitCompletedSuccess,
   setHabitIncomplete,
-  setHabitIncompleteSuccess
+  setHabitIncompleteSuccess,
+  fetchMonthlyHabits,
+  fetchMonthlyHabitsSuccess
 };

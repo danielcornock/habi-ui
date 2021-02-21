@@ -1,10 +1,12 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { DateTime } from 'luxon';
 
 import { HabitRecordsActions } from '../actions/habit-records.actions';
 import { HabitRecordsState } from '../models/habit-records.model';
 
 const initialState: HabitRecordsState = {
-  days: {}
+  days: {},
+  activeMonth: DateTime.local().toFormat('YYYY-MM')
 };
 
 const reducer = createReducer(
