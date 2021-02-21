@@ -1,0 +1,14 @@
+@import 'src/assets/styles/themes.scss';
+
+.habits-list {
+  &__container {
+    overflow-y: auto;
+    @include page-container;
+    padding-top: 1px;
+  }
+
+  &__habit {
+    display: block;
+    margin-bottom: $spacing-12;
+  }
+}

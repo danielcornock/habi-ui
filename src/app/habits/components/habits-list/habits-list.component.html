@@ -1,0 +1,20 @@
+<div class="habits-list__container">
+  <habi-daily-habit
+    class="habits-list__habit"
+    *ngFor="let habit of incompleteHabits$ | async"
+    [title]="habit.title"
+    [flair]="habit.flair"
+    [color]="habit.color"
+    (toggleCompleted)="onToggleCompleted(habit.id)"
+    [isCompleted]="false"
+  ></habi-daily-habit>
+  <habi-daily-habit
+    class="habits-list__habit"
+    *ngFor="let habit of habits$ | async"
+    [title]="habit.template.title"
+    [flair]="habit.template.flair"
+    [color]="habit.template.color"
+    [isCompleted]="true"
+    (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
+  ></habi-daily-habit>
+</div>
