@@ -13,14 +13,8 @@
     display: block;
   }
 
-  &__habit {
+  &__habits {
     display: block;
-    margin-bottom: $spacing-12;
-  }
-
-  &__habits-list {
     overflow-y: auto;
-    @include page-container;
-    padding-top: 1px;
   }
 }
