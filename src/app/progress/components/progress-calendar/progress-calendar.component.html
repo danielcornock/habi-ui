@@ -8,21 +8,18 @@
   <div class="progress-calendar__calendar">
     <button
       class="progress-calendar__day"
-      *ngFor="let date of calendar"
-      (click)="selectDay.emit(date.day)"
+      *ngFor="let item of formattedMonthItems"
+      (click)="selectDay.emit(item.date.day)"
     >
       <div
         class="progress-calendar__inner"
-        [class.is-selected]="date?.day === selectedDay"
+        [class.is-selected]="item?.date.day === selectedDay"
       >
         <p class="progress-calendar__day-text">
-          {{ date?.day }}
+          {{ item?.date.day }}
         </p>
-        <p
-          class="progress-calendar__day-count"
-          *ngIf="records[date?.toISODate()] as entries"
-        >
-          {{ entries.length }}
+        <p class="progress-calendar__day-count" *ngIf="item?.count">
+          {{ item?.count }}
         </p>
       </div>
     </button>
