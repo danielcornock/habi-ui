@@ -1,1 +1,14 @@
-<p>progress works!</p>
+<div class="progress__container">
+  <habi-progress-calendar
+    class="progress__calendar"
+    [calendar]="monthView"
+    [records]="records$ | async"
+    [selectedDay]="selectedDay"
+    (selectDay)="selectDay($event)"
+  ></habi-progress-calendar>
+  <habi-habits-list
+    class="progress__habits"
+    *ngIf="selectedDate"
+    [selectedDate]="selectedDate"
+  ></habi-habits-list>
+</div>

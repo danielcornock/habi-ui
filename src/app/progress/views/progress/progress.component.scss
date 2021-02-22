@@ -1,0 +1,19 @@
+@import 'src/assets/styles/themes.scss';
+
+.progress {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__calendar {
+    @include page-container;
+    margin-bottom: 16px;
+  }
+
+  &__habits {
+    display: block;
+    overflow-y: auto;
+  }
+}

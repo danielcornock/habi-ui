@@ -1,0 +1,30 @@
+<div class="progress-calendar__container">
+  <div class="progress-calendar__weekdays">
+    <div class="progress-calendar__weekday" *ngFor="let day of weekdays">
+      {{ day }}
+    </div>
+  </div>
+
+  <div class="progress-calendar__calendar">
+    <button
+      class="progress-calendar__day"
+      *ngFor="let date of calendar"
+      (click)="selectDay.emit(date.day)"
+    >
+      <div
+        class="progress-calendar__inner"
+        [class.is-selected]="date?.day === selectedDay"
+      >
+        <p class="progress-calendar__day-text">
+          {{ date?.day }}
+        </p>
+        <p
+          class="progress-calendar__day-count"
+          *ngIf="records[date?.toISODate()] as entries"
+        >
+          {{ entries.length }}
+        </p>
+      </div>
+    </button>
+  </div>
+</div>
