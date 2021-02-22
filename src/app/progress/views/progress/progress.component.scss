@@ -7,9 +7,16 @@
     height: 100%;
   }
 
+  &__selector {
+    margin-bottom: 16px;
+  }
+
   &__calendar {
     @include page-container;
+    display: block;
+    padding-bottom: 16px;
     margin-bottom: 16px;
+    border-bottom: 1px solid $color-border;
   }
 
   &__habits {

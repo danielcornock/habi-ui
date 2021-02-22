@@ -1,0 +1,9 @@
+<div class="month-selector__container">
+  <button class="month-selector__button" (click)="goBackOneMonth()">
+    <i-feather name="chevron-left"></i-feather>
+  </button>
+  <p class="month-selector__month">{{ activeMonth | date: 'MMMM YYYY' }}</p>
+  <button class="month-selector__button" (click)="goForwardOneMonth()">
+    <i-feather name="chevron-right"></i-feather>
+  </button>
+</div>

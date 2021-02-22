@@ -1,0 +1,14 @@
+@import 'src/assets/styles/themes.scss';
+
+.month-selector {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+  }
+
+  &__button {
+    color: $color-subheading;
+  }
+}

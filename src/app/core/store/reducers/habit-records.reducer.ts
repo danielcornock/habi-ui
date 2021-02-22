@@ -6,7 +6,9 @@ import { HabitRecordsState } from '../models/habit-records.model';
 
 const initialState: HabitRecordsState = {
   days: {},
-  activeMonth: DateTime.local().toFormat('YYYY-MM')
+  activeMonth: DateTime.local()
+    .toISODate()
+    .slice(0, -3)
 };
 
 const reducer = createReducer(
@@ -41,6 +43,12 @@ const reducer = createReducer(
           (existingHabit) => existingHabit.id !== action.recordId
         )
       }
+    };
+  }),
+  on(HabitRecordsActions.setActiveMonth, (state, action) => {
+    return {
+      ...state,
+      activeMonth: action.month
     };
   })
 );

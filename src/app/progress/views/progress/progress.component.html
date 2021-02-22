@@ -1,4 +1,9 @@
 <div class="progress__container">
+  <habi-month-selector
+    class="progress__selector"
+    [activeMonth]="isoMonth$ | async"
+    (changeMonth)="onChangeMonth($event)"
+  ></habi-month-selector>
   <habi-progress-calendar
     class="progress__calendar"
     [calendar]="monthView"
