@@ -16,6 +16,12 @@ const reducer = createReducer(
       ...state,
       ...action.authDetails
     };
+  }),
+  on(AuthenticationActions.fetchLocalAuthSuccess, (state, action) => {
+    return {
+      ...state,
+      ...action.authDetails
+    };
   })
 );
 

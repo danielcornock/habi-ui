@@ -27,7 +27,7 @@ export class StorageService {
   }
 
   public getObject<T>(key: StorageKeys): T {
-    const payload = this.get(key) || '{}';
+    const payload = this.get(key);
 
     return JSON.parse(payload);
   }

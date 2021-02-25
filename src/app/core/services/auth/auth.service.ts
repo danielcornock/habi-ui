@@ -7,6 +7,7 @@ import {
 } from 'angularx-social-login';
 import { from, Observable } from 'rxjs';
 
+import { AuthenticationActions } from '../../store/actions/authentication.actions';
 import { RootState } from '../../store/models/root-state.model';
 import { AuthenticationSelectors } from '../../store/selectors/authentication.selectors';
 
@@ -18,6 +19,10 @@ export class AuthService {
     private socialAuthService: SocialAuthService,
     private store: Store<RootState>
   ) {}
+
+  public initialise(): void {
+    this.store.dispatch(AuthenticationActions.initialiseAuthInfo());
+  }
 
   public isAuthenticated(): Observable<boolean> {
     return this.store.select(AuthenticationSelectors.isLoggedIn);
