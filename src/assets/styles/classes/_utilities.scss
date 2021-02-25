@@ -1,0 +1,10 @@
+.u-cta-button {
+  @include button-reset();
+  @include center-contents();
+  height: 50px;
+  background-color: $color-highlight;
+  color: $color-white;
+  display: block;
+  border-radius: $br-sm;
+  width: 100%;
+}

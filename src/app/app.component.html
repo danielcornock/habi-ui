@@ -1,7 +1,7 @@
 <div class="App-container">
-  <habi-header class="App-header"></habi-header>
+  <habi-header class="App-header" *ngIf="isLoggedIn$ | async"></habi-header>
   <div class="App-scrollView">
     <router-outlet></router-outlet>
   </div>
-  <habi-nav-menu class="App-nav"></habi-nav-menu>
+  <habi-nav-menu class="App-nav" *ngIf="isLoggedIn$ | async"></habi-nav-menu>
 </div>

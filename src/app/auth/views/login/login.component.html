@@ -1,0 +1,48 @@
+<div class="login__container">
+  <div class="login__branding-container">
+    <habi-branding></habi-branding>
+  </div>
+
+  <form
+    class="login__form"
+    [formGroup]="form.formGroup"
+    (ngSubmit)="submitForm()"
+  >
+    <ngx-form-input-item
+      *ngFor="let field of form.fields"
+      [formInputField]="field"
+    ></ngx-form-input-item>
+    <button
+      class="login__forgot-password"
+      (click)="forgotPassword()"
+      type="button"
+    >
+      Forgotten your password?
+    </button>
+
+    <input
+      type="submit"
+      class="u-cta-button login__submit"
+      value="Sign in with email"
+    />
+
+    <p class="login__divider">OR</p>
+    <button type="button" class="login__google" (click)="openGoogleToSignIn()">
+      <img
+        class="login__google-icon"
+        src="../../../../assets/images/google.svg"
+        alt=""
+      />
+      <p class="login__google-text">
+        Sign in with google
+      </p>
+    </button>
+
+    <p class="login__signup">
+      Don't have an account?
+      <button class="login__signup-button" (click)="goToSignup()" type="button">
+        Register now
+      </button>
+    </p>
+  </form>
+</div>

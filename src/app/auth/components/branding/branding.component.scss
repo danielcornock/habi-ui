@@ -1,0 +1,21 @@
+@import 'src/assets/styles/themes.scss';
+
+.branding {
+  &__container {
+    display: flex;
+    color: $color-highlight;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  &__name {
+    @include branding-font;
+    font-size: 40px;
+  }
+
+  &__logo {
+    @include icon(36px);
+    display: block;
+    margin-right: 8px;
+  }
+}

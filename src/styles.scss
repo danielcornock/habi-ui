@@ -1,5 +1,6 @@
 @import 'src/assets/styles/themes.scss';
 @import 'src/assets/styles/classes/overrides';
+@import 'src/assets/styles/classes/utilities';
 
 * {
   margin: 0;
@@ -28,4 +29,8 @@ a {
 
 i-feather {
   display: block !important;
+}
+
+:root {
+  --color-form-input-border: #{lighten($color-highlight, 30%)};
 }

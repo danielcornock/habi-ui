@@ -1,0 +1,41 @@
+<div class="signup__container">
+  <div class="signup__branding-container">
+    <habi-branding></habi-branding>
+  </div>
+
+  <form
+    class="signup__form"
+    [formGroup]="form.formGroup"
+    (ngSubmit)="submitForm()"
+  >
+    <ngx-form-input-item
+      *ngFor="let field of form.fields"
+      [formInputField]="field"
+    ></ngx-form-input-item>
+
+    <input
+      type="submit"
+      class="u-cta-button signup__submit"
+      value="Sign up with email"
+    />
+
+    <p class="signup__divider">OR</p>
+    <button type="button" class="signup__google" (click)="signUpWithGoogle()">
+      <img
+        class="signup__google-icon"
+        src="../../../../assets/images/google.svg"
+        alt=""
+      />
+      <p class="signup__google-text">
+        Sign up with google
+      </p>
+    </button>
+
+    <p class="signup__login">
+      Already have an account?
+      <button class="signup__login-button" (click)="goToLogin()" type="button">
+        Sign in
+      </button>
+    </p>
+  </form>
+</div>

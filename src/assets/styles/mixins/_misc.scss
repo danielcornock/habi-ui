@@ -14,3 +14,13 @@
 @mixin page-container {
   margin: 0 12px;
 }
+
+@mixin branding-font {
+  font-family: 'Comfortaa', cursive;
+}
+
+@mixin center-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
