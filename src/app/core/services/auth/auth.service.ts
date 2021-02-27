@@ -31,4 +31,8 @@ export class AuthService {
   public openGoogleToSignIn(): Observable<SocialUser> {
     return from(this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID));
   }
+
+  public logOut(): Observable<void> {
+    return from(this.socialAuthService.signOut());
+  }
 }

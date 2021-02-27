@@ -100,4 +100,15 @@ export class AuthenticationEffects {
       ),
     { dispatch: false }
   );
+
+  public logOut$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthenticationActions.logOut),
+        switchMap(() => this.authService.logOut()),
+        tap(() => this.storageService.remove(StorageKeys.authInfo)),
+        tap(() => this.router.navigateByUrl('auth/login'))
+      ),
+    { dispatch: false }
+  );
 }

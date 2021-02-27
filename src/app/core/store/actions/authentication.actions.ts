@@ -31,6 +31,8 @@ const fetchLocalAuthSuccess = createAction(
   props<{ authDetails: AuthResponse }>()
 );
 
+const logOut = createAction(`${prefix} Log out`);
+
 export const AuthenticationActions = {
   initialiseAuthInfo,
   openGoogleToRegister,
@@ -38,5 +40,6 @@ export const AuthenticationActions = {
   createAccountWithGoogle,
   authenticationSuccess,
   signInWithGoogle,
-  fetchLocalAuthSuccess
+  fetchLocalAuthSuccess,
+  logOut
 };

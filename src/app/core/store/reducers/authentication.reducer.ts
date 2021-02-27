@@ -6,7 +6,8 @@ import { AuthenticationState } from '../models/authentication-state.model';
 const initialState: AuthenticationState = {
   authToken: '',
   email: '',
-  name: ''
+  name: '',
+  id: ''
 };
 
 const reducer = createReducer(
@@ -22,6 +23,9 @@ const reducer = createReducer(
       ...state,
       ...action.authDetails
     };
+  }),
+  on(AuthenticationActions.logOut, (state, action) => {
+    return initialState;
   })
 );
 
