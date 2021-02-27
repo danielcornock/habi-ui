@@ -10,9 +10,10 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { authInterceptorProviders } from './providers/auth-interceptor.provider';
 import { socialAuthProviders } from './providers/social-auth.provider';
 import { RootStoreModule } from './store/root-store.module';
+import { AuthenticatedViewComponent } from './views/authenticated-view/authenticated-view.component';
 
 @NgModule({
-  declarations: [HeaderComponent, NavMenuComponent],
+  declarations: [HeaderComponent, NavMenuComponent, AuthenticatedViewComponent],
   imports: [
     CommonModule,
     IconModule,

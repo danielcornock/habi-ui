@@ -1,0 +1,23 @@
+@import 'src/assets/styles/themes.scss';
+
+.authenticated-view {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__header {
+    display: block;
+  }
+
+  &__scrollView {
+    overflow-y: auto;
+    flex: 1 1 100%;
+  }
+
+  &__nav {
+    display: block;
+    margin-top: auto;
+  }
+}
