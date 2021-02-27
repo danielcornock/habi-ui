@@ -22,6 +22,10 @@
         color: $color-white;
         box-shadow: 0;
       }
+
+      #{$cmp}__title {
+        text-decoration: line-through;
+      }
     }
   }
 

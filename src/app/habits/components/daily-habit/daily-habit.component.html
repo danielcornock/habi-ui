@@ -4,7 +4,9 @@
   style="--habitColor: {{ color }}"
   (click)="onClick()"
 >
-  <p class="daily-habit__title">{{ flair }} {{ title }}</p>
+  <p class="daily-habit__title" [class.is-completed]="isCompleted">
+    {{ flair }} {{ title }}
+  </p>
   <div class="daily-habit__check">
     <i-feather class="daily-habit__icon" name="check"></i-feather>
   </div>
