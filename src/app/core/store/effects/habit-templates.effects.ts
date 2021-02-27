@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { CreateHabitModalComponent } from 'src/app/habits/components/create-habit-modal/create-habit-modal.component';
 import { HabitTemplateResponse } from 'src/app/habits/interfaces/habit-template-response.interface';
@@ -18,7 +18,7 @@ export class HabitTemplatesEffects {
 
   fetchTemplates$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ROOT_EFFECTS_INIT),
+      ofType(HabitTemplatesActions.fetchTemplates),
       switchMap(() => {
         return this.habitsApiService
           .getHabitTemplates()
