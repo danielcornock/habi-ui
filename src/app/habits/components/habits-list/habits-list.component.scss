@@ -5,6 +5,7 @@
     overflow-y: auto;
     @include page-container;
     padding-top: 1px;
+    padding-right: 1px;
   }
 
   &__habit {

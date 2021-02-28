@@ -1,0 +1,17 @@
+@mixin form-label-error-styles {
+  &.is-errored {
+    color: var(--color-form-input-label--error);
+  }
+}
+
+@mixin form-input-label {
+  display: block;
+  text-align: left;
+  font-size: var(--form-input-label-size, 14px);
+  margin-bottom: var(--form-input-label-margin-bottom, 6px);
+  font-weight: var(--form-input-label-font-weight, 500);
+  letter-spacing: var(--form-input-label-letter-spacing, 0.5px);
+  color: var(--color-form-label);
+
+  @include form-label-error-styles;
+}

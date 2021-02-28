@@ -1,0 +1,18 @@
+<div class="form-input-color-select__container">
+  <label
+    class="form-input-color-select__label"
+    [attr.for]="formInputField.name"
+    [class.is-errored]="isErrored"
+    >{{ formInputField.label }}
+    <span *ngIf="isRequired"> *</span>
+  </label>
+  <habi-colour-picker-control
+    [formControl]="control"
+    class="form-input-color-select__input"
+  >
+    <habi-colour-option
+      *ngFor="let option of formInputField.options"
+      [value]="option.value"
+    ></habi-colour-option
+  ></habi-colour-picker-control>
+</div>

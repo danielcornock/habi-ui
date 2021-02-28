@@ -32,5 +32,8 @@ i-feather {
 }
 
 :root {
-  --color-form-input-border: #{lighten($color-highlight, 30%)};
+  --color-form-label: #{$color-subheading};
+  --color-form-input-border: #{$color-light-text};
+  --color-form-input-background: #{$color-form-input-background};
+  --color-form-input-label--error: #c53030;
 }

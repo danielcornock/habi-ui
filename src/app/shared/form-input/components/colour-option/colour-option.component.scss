@@ -1,0 +1,21 @@
+@import 'src/assets/styles/themes.scss';
+
+.colour-option {
+  &__container {
+    height: 46px;
+    width: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $br-sm;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__selected {
+    height: 20px;
+    width: 20px;
+    border-radius: $br-max;
+    background-color: $color-white;
+  }
+}

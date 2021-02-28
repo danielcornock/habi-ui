@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxFormTrooperModule } from 'ngx-form-trooper';
 
+import { FormInputModule } from '../shared/form-input/form-input.module';
 import { IconModule } from '../shared/icon/icon.module';
 import { ModalModule } from '../shared/modal/modal.module';
 import { CreateHabitModalComponent } from './components/create-habit-modal/create-habit-modal.component';
@@ -21,7 +22,8 @@ import { HabitsListComponent } from './components/habits-list/habits-list.compon
     FormsModule,
     ReactiveFormsModule,
     NgxFormTrooperModule,
-    IconModule
+    IconModule,
+    FormInputModule
   ],
   exports: [DailyHabitComponent, HabitsListComponent]
 })

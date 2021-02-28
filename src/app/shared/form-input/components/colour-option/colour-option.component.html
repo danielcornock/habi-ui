@@ -1,0 +1,7 @@
+<button
+  class="colour-option__container"
+  (click)="selectOption()"
+  [style.background-color]="value"
+>
+  <div class="colour-option__selected" *ngIf="isSelected"></div>
+</button>

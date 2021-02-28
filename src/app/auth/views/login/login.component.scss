@@ -34,8 +34,8 @@
   }
 
   &__form {
-    --color-form-label: #{$color-highlight};
     --color-form-input-background: #{$color-white};
+    --color-form-label: #{$color-highlight};
     display: flex;
     flex-direction: column;
   }

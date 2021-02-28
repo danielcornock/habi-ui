@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { map } from 'lodash';
 import { FormContainer, FormFactory, FormInputType } from 'ngx-form-trooper';
 import { ModalHeaderAction } from 'src/app/shared/modal/interfaces/modal-header-action.interface';
 
+import { HabitColours } from '../../constants/habit-colours.constant';
 import { HabitsApiService } from '../../services/habits-api/habits-api.service';
 
 @Component({
@@ -26,6 +28,10 @@ export class CreateHabitModalComponent implements OnInit {
   }
 
   private createForm(): void {
+    const habitColours = map(HabitColours, (value, label) => {
+      return { label, value };
+    });
+
     this.form = this.formFactory.createForm([
       {
         name: 'title',
@@ -38,18 +44,11 @@ export class CreateHabitModalComponent implements OnInit {
       {
         name: 'color',
         label: 'Colour',
-        defaultValue: '#aa11ee',
+        defaultValue: HabitColours.Cherry,
         validators: {
           required: true
-        }
-      },
-      {
-        name: 'flair',
-        label: 'Emoji',
-        defaultValue: '⚽️',
-        validators: {
-          required: true
-        }
+        },
+        options: habitColours
       }
     ]);
   }

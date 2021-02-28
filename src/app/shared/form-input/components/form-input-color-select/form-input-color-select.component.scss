@@ -1,0 +1,12 @@
+@import 'src/assets/styles/themes.scss';
+
+.form-input-color-select {
+  &__label {
+    @include form-input-label;
+  }
+
+  &__input {
+    margin-bottom: var(--form-input-margin-bottom, 30px);
+    display: block;
+  }
+}
