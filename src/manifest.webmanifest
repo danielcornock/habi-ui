@@ -3,7 +3,7 @@
   "short_name": "Habi",
   "theme_color": "#ed4655",
   "background_color": "#ffffff",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "./",
   "start_url": "./",
   "icons": [
