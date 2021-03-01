@@ -15,7 +15,9 @@ export class RouterEffects {
       this.actions$.pipe(
         ofType(ROUTER_NAVIGATION),
         tap((action: RouterNavigationAction<RouterState>) => {
-          this.titleService.setTitle(action.payload.routerState.data.title);
+          this.titleService.setTitle(
+            `Habi | ${action.payload.routerState.data.title}`
+          );
         })
       ),
     { dispatch: false }
