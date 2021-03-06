@@ -7,11 +7,13 @@ import { SignupComponent } from './views/signup/signup.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { title: 'Sign in' }
   },
   {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
+    data: { title: 'Sign up' }
   }
 ];
 

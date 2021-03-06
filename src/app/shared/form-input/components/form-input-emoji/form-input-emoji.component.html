@@ -1,0 +1,18 @@
+<div class="form-input-emoji__container">
+  <label
+    class="form-input-emoji__label"
+    [attr.for]="formInputField.name"
+    [class.is-errored]="isErrored"
+    >{{ formInputField.label }}</label
+  >
+  <button class="form-input-emoji__button" (click)="openEmojis()" type="button">
+    {{ control.value }}
+  </button>
+  <emoji-mart
+    class="form-input-emoji__picker"
+    *ngIf="showEmojis"
+    (emojiClick)="addEmoji($event)"
+    [darkMode]="false"
+    [showPreview]="false"
+  ></emoji-mart>
+</div>

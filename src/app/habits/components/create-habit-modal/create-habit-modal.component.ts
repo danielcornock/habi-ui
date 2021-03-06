@@ -49,6 +49,14 @@ export class CreateHabitModalComponent implements OnInit {
           required: true
         },
         options: habitColours
+      },
+      {
+        name: 'flair',
+        label: 'Icon',
+        defaultValue: '📕',
+        validators: {
+          required: true
+        }
       }
     ]);
   }
