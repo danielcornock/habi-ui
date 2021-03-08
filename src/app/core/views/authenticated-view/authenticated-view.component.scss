@@ -11,9 +11,8 @@
     display: block;
   }
 
-  &__scrollView {
-    overflow-y: auto;
-    flex: 1 1 100%;
+  &__scroll-view {
+    overflow-y: hidden;
   }
 
   &__nav {

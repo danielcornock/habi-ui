@@ -1,20 +1,22 @@
-<div class="habits-list__container">
+<div class="habits-list__container" [habi-transition-group]="'flip-list'">
   <habi-daily-habit
     class="habits-list__habit"
-    *ngFor="let habit of incompleteHabits$ | async"
+    *ngFor="let habit of incompleteHabits$ | async; trackBy: trackList"
     [title]="habit.title"
     [flair]="habit.flair"
     [color]="habit.color"
     (toggleCompleted)="onToggleCompleted(habit.id)"
     [isCompleted]="false"
+    habi-transition-group-item
   ></habi-daily-habit>
   <habi-daily-habit
     class="habits-list__habit"
-    *ngFor="let habit of habits$ | async"
+    *ngFor="let habit of habits$ | async; trackBy: trackList"
     [title]="habit.template.title"
     [flair]="habit.template.flair"
     [color]="habit.template.color"
     [isCompleted]="true"
     (toggleCompleted)="onToggleIncompleted(habit.id, habit.completedOn)"
+    habi-transition-group-item
   ></habi-daily-habit>
 </div>

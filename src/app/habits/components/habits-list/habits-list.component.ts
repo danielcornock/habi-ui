@@ -50,4 +50,8 @@ export class HabitsListComponent implements OnChanges {
       HabitRecordsActions.setHabitIncomplete({ recordId, completedOn })
     );
   }
+
+  public trackList(_index: number, obj: any): string {
+    return obj.id;
+  }
 }

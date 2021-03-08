@@ -9,7 +9,7 @@ const selectHabitRecordsState = (state: RootState) => state.habitRecords;
 const dailyHabitRecords = (date: string) =>
   createSelector(
     selectHabitRecordsState,
-    (state: HabitRecordsState) => state.days[date]
+    (state: HabitRecordsState) => state.days[date] || []
   );
 
 const monthlyRecords = (date: string) =>
