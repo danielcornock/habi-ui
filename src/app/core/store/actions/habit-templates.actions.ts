@@ -17,9 +17,14 @@ const openTemplateCreationForm = createAction(
   '[Habit Templates] Open template creation form'
 );
 
+const openTemplatelistPage = createAction(
+  `[Habit Templates] Open template list page`
+);
+
 export const HabitTemplatesActions = {
   fetchTemplates,
   fetchTemplatesSuccess,
   openTemplateCreationForm,
-  createTemplateSuccess
+  createTemplateSuccess,
+  openTemplatelistPage
 };

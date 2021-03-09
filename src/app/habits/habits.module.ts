@@ -8,13 +8,17 @@ import { IconModule } from '../shared/icon/icon.module';
 import { ModalModule } from '../shared/modal/modal.module';
 import { CreateHabitModalComponent } from './components/create-habit-modal/create-habit-modal.component';
 import { DailyHabitComponent } from './components/daily-habit/daily-habit.component';
+import { HabitTemplateItemComponent } from './components/habit-template-item/habit-template-item.component';
+import { HabitTemplatesListComponent } from './components/habit-templates-list/habit-templates-list.component';
 import { HabitsListComponent } from './components/habits-list/habits-list.component';
 
 @NgModule({
   declarations: [
     CreateHabitModalComponent,
     DailyHabitComponent,
-    HabitsListComponent
+    HabitsListComponent,
+    HabitTemplatesListComponent,
+    HabitTemplateItemComponent
   ],
   imports: [
     CommonModule,

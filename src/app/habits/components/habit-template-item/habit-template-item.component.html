@@ -1,0 +1,8 @@
+<div class="habit-template-item__container" style="--habitColor: {{ color }}">
+  <p class="habit-template-item__title">{{ flair }} {{ title }}</p>
+  <div class="habit-template-item__actions">
+    <button class="habit-template-item__action" *ngFor="let action of actions">
+      <i-feather [name]="action.icon" (click)="action.action()"></i-feather>
+    </button>
+  </div>
+</div>

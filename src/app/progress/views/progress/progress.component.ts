@@ -3,7 +3,9 @@ import { Store } from '@ngrx/store';
 import { DateTime } from 'luxon';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { CoreActions } from 'src/app/core/store/actions/core.actions';
 import { HabitRecordsActions } from 'src/app/core/store/actions/habit-records.actions';
+import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
 import { HabitRecordsSelectors } from 'src/app/core/store/selectors/habit-records.selectors';
 import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habit-record-response.interface';
 import { CalendarService } from 'src/app/shared/calendar/services/calendar/calendar.service';
@@ -26,6 +28,16 @@ export class ProgressComponent implements OnInit {
   constructor(private store: Store, private calendarService: CalendarService) {}
 
   ngOnInit(): void {
+    this.store.dispatch(
+      CoreActions.setHeaderAction({
+        headerAction: {
+          icon: 'list',
+          action: () => {
+            this.store.dispatch(HabitTemplatesActions.openTemplatelistPage());
+          }
+        }
+      })
+    );
     this.isoMonth$ = this.store.select(HabitRecordsSelectors.activeMonth).pipe(
       tap((month) => {
         const dateObj = DateTime.fromISO(month);

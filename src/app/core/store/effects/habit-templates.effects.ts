@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { CreateHabitModalComponent } from 'src/app/habits/components/create-habit-modal/create-habit-modal.component';
+import { HabitTemplatesListComponent } from 'src/app/habits/components/habit-templates-list/habit-templates-list.component';
 import { HabitTemplateResponse } from 'src/app/habits/interfaces/habit-template-response.interface';
 import { HabitsApiService } from 'src/app/habits/services/habits-api/habits-api.service';
 import { ModalService } from 'src/app/shared/modal/services/modal/modal.service';
@@ -47,5 +48,16 @@ export class HabitTemplatesEffects {
           )
       )
     )
+  );
+
+  openTemplateList$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(HabitTemplatesActions.openTemplatelistPage),
+        tap(() => {
+          this.modalService.openFullScreenModal(HabitTemplatesListComponent);
+        })
+      ),
+    { dispatch: false }
   );
 }

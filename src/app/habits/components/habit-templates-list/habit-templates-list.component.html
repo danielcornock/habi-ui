@@ -1,0 +1,12 @@
+<div class="habit-templates-list-_container">
+  <habi-modal-header>Your Habits</habi-modal-header>
+  <habi-habit-template-item
+    *ngFor="let habit of templates$ | async"
+    [title]="habit.title"
+    [flair]="habit.flair"
+    [color]="habit.color"
+    (deleteTemplate)="onDeleteTemplate(habit.id)"
+    (hideTemplate)="onHideTemplate(habit.id)"
+    (editTemplate)="onEditTemplate(habit.id)"
+  ></habi-habit-template-item>
+</div>

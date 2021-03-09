@@ -1,0 +1,38 @@
+@import 'src/assets/styles/themes.scss';
+
+:host {
+  padding: 1px;
+  display: block;
+}
+
+.habit-template-item {
+  &__container {
+    box-shadow: 0 0px 2px 1px $color-border;
+    border-radius: $br-sm;
+    margin-bottom: $spacing-12;
+    padding: 0 $spacing-16;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-left: 8px solid var(--habitColor, $color-highlight);
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__actions {
+    display: flex;
+  }
+
+  &__action {
+    color: $color-grey;
+
+    & + & {
+      margin-left: $spacing-8;
+    }
+  }
+}
