@@ -8,15 +8,21 @@
   }
 
   &__selector {
-    margin-bottom: 16px;
+    @include page-container;
+    border-radius: $br-sm $br-sm 0 0;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   &__calendar {
     @include page-container;
     display: block;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
+    padding: 12px 0;
+    margin-bottom: 12px;
     border-bottom: 1px solid $color-border;
+    border-radius: 0 0 $br-sm $br-sm;
+    border: 1px solid $color-border;
+    border-top: 0;
   }
 
   &__habits {

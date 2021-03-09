@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { DateTime } from 'luxon';
 import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habit-record-response.interface';
 
@@ -29,6 +36,12 @@ export class ProgressCalendarComponent implements OnChanges {
     }
   }
 
+  public onSelectDay(item: { date: DateTime; count: number } | null): void {
+    if (item) {
+      this.selectDay.emit(item.date.day);
+    }
+  }
+
   private processCalendar(): void {
     this.formattedMonthItems = this.calendar.map((date) => {
       if (!date) {
@@ -39,7 +52,8 @@ export class ProgressCalendarComponent implements OnChanges {
 
       return {
         date,
-        count: records.length
+        count: records.length,
+        action: () => this.selectDay.emit(date.day)
       };
     });
   }

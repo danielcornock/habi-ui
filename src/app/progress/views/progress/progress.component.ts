@@ -35,6 +35,7 @@ export class ProgressComponent implements OnInit {
           HabitRecordsSelectors.monthlyRecords(month)
         );
         this.store.dispatch(HabitRecordsActions.fetchMonthlyHabits({ month }));
+        this.selectDay(DateTime.local().day);
 
         this.monthView = this.calendarService.generateCalendarArray(
           this.activeMonth,
