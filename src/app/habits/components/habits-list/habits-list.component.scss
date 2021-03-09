@@ -6,10 +6,12 @@
     @include page-container;
     padding-top: 1px;
     padding-right: 1px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__habit {
-    display: block;
-    margin-bottom: $spacing-12;
+    overflow: hidden;
+    display: inline-block;
   }
 }

@@ -1,11 +1,16 @@
 @import 'src/assets/styles/themes.scss';
 
+:host {
+  padding: 1px;
+}
+
 .daily-habit {
   $cmp: &;
 
   &__container {
     box-shadow: 0 0px 2px 1px $color-border;
     border-radius: $br-sm;
+    margin-bottom: $spacing-12;
     padding: 0 $spacing-16;
     height: 70px;
     display: flex;

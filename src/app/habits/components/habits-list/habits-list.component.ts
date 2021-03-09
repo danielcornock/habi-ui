@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DateTime } from 'luxon';
@@ -13,7 +14,19 @@ import { HabitsStoreService } from '../../services/habits-store/habits-store.ser
 @Component({
   selector: 'habi-habits-list',
   templateUrl: './habits-list.component.html',
-  styleUrls: ['./habits-list.component.scss']
+  styleUrls: ['./habits-list.component.scss'],
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({ height: '0px', opacity: '0' }),
+        animate('0.5s ease-out', style({ height: '82px', opacity: '1' }))
+      ]),
+      transition(':leave', [
+        style({ height: '82px', opacity: '1' }),
+        animate('0.5s ease-out', style({ height: '0px', opacity: '0' }))
+      ])
+    ])
+  ]
 })
 export class HabitsListComponent implements OnChanges {
   @Input()
