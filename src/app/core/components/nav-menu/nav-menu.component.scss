@@ -3,6 +3,7 @@
 .nav-menu {
   &__container {
     display: flex;
+    box-shadow: 0 -1px 4px rgba(black, 0.1);
   }
 
   &__item {
@@ -22,8 +23,8 @@
   &__icon {
     display: block;
     margin-bottom: $spacing-4;
-    height: 20px;
-    width: 20px;
+    height: 22px;
+    width: 22px;
   }
 
   &__label {

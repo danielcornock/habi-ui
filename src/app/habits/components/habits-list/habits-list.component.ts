@@ -19,11 +19,17 @@ import { HabitsStoreService } from '../../services/habits-store/habits-store.ser
     trigger('slideInOut', [
       transition(':enter', [
         style({ height: '0px', opacity: '0' }),
-        animate('0.5s ease-out', style({ height: '82px', opacity: '1' }))
+        animate('0.3s ease-in-out', style({ height: '82px', opacity: '1' }))
       ]),
       transition(':leave', [
         style({ height: '82px', opacity: '1' }),
-        animate('0.5s ease-out', style({ height: '0px', opacity: '0' }))
+        animate('0.3s ease-in-out', style({ height: '0px', opacity: '0' }))
+      ])
+    ]),
+    trigger('fadeInOut', [
+      transition('* => *', [
+        style({ opacity: '0' }),
+        animate('0s', style({ opacity: '1' }))
       ])
     ])
   ]
