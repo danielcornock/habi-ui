@@ -20,6 +20,12 @@ const reducer = createReducer(
       ...state,
       templates: [...state.templates, action.template]
     };
+  }),
+  on(HabitTemplatesActions.deleteTemplateSuccess, (state, action) => {
+    return {
+      ...state,
+      templates: state.templates.filter((template) => template.id !== action.id)
+    };
   })
 );
 

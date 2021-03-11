@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
 import { HabitTemplatesSelectors } from 'src/app/core/store/selectors/habit-templates.selectors';
 
 import { HabitTemplateResponse } from '../../interfaces/habit-template-response.interface';
@@ -24,9 +25,7 @@ export class HabitTemplatesListComponent implements OnInit {
   }
 
   public async onDeleteTemplate(id: string): Promise<void> {
-    await confirm(
-      'Are you sure you want to delete this template? It will remove it entirely from your history.'
-    );
+    this.store.dispatch(HabitTemplatesActions.deleteTemplate({ id }));
   }
 
   public onEditTemplate(id: string): void {}

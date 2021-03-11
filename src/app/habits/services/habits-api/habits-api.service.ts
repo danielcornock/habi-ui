@@ -50,4 +50,8 @@ export class HabitsApiService {
   }): HttpResponse<HabitTemplateResponse> {
     return this.httpService.post('habit-templates', template);
   }
+
+  public deleteHabitTemplate(id: string): Observable<void> {
+    return this.httpService.delete(`habit-templates/${id}`);
+  }
 }

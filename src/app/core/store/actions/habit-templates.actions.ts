@@ -21,10 +21,22 @@ const openTemplatelistPage = createAction(
   `[Habit Templates] Open template list page`
 );
 
+const deleteTemplate = createAction(
+  `[Habit Templates] Delete template`,
+  props<{ id: string }>()
+);
+
+const deleteTemplateSuccess = createAction(
+  `[Habit Templates] Delete template success`,
+  props<{ id: string }>()
+);
+
 export const HabitTemplatesActions = {
   fetchTemplates,
   fetchTemplatesSuccess,
   openTemplateCreationForm,
   createTemplateSuccess,
-  openTemplatelistPage
+  openTemplatelistPage,
+  deleteTemplate,
+  deleteTemplateSuccess
 };

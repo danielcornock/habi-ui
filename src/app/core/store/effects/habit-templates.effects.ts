@@ -60,4 +60,20 @@ export class HabitTemplatesEffects {
       ),
     { dispatch: false }
   );
+
+  deleteHabit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(HabitTemplatesActions.deleteTemplate),
+      filter(() =>
+        confirm(
+          'Are you sure you want to delete this template? It will remove it entirely from your history.'
+        )
+      ),
+      switchMap(({ id }) =>
+        this.habitsApiService
+          .deleteHabitTemplate(id)
+          .pipe(map(() => HabitTemplatesActions.deleteTemplateSuccess({ id })))
+      )
+    )
+  );
 }
