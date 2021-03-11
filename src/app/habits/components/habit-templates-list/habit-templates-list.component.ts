@@ -30,9 +30,15 @@ export class HabitTemplatesListComponent implements OnInit {
 
   public onEditTemplate(id: string): void {}
 
-  public async onHideTemplate(id: string): Promise<void> {
-    await confirm(
-      'Are you sure you want to stop tracking this habit? It will no longer appear in your list of habits, but can be reactivated in the future.'
+  public async onHideTemplate(
+    id: string,
+    isCurrentlyPaused: boolean
+  ): Promise<void> {
+    this.store.dispatch(
+      HabitTemplatesActions.togglePauseTemplate({
+        id,
+        isPaused: !isCurrentlyPaused
+      })
     );
   }
 }

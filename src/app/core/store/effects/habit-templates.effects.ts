@@ -76,4 +76,26 @@ export class HabitTemplatesEffects {
       )
     )
   );
+
+  pauseHabit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(HabitTemplatesActions.togglePauseTemplate),
+      filter(() =>
+        confirm(
+          'Are you sure you want to stop tracking this habit? It will no longer appear in your list of habits, but can be reactivated in the future.'
+        )
+      ),
+      switchMap(({ id, isPaused }) =>
+        this.habitsApiService
+          .toggleHabitTemplatePaused(id, isPaused)
+          .pipe(
+            map(({ data }) =>
+              HabitTemplatesActions.togglePauseTemplateSuccess({
+                template: data
+              })
+            )
+          )
+      )
+    )
+  );
 }

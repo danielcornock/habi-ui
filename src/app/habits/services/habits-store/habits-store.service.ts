@@ -28,8 +28,9 @@ export class HabitsStoreService {
           return of(templates);
         } else {
           const filteredTemplates = templates.filter((template) => {
-            return !dailyHabits.find(
-              (habit) => habit.template.id === template.id
+            return (
+              !template.isPaused &&
+              !dailyHabits.find((habit) => habit.template.id === template.id)
             );
           });
 

@@ -54,4 +54,11 @@ export class HabitsApiService {
   public deleteHabitTemplate(id: string): Observable<void> {
     return this.httpService.delete(`habit-templates/${id}`);
   }
+
+  public toggleHabitTemplatePaused(
+    id: string,
+    isPaused: boolean
+  ): HttpResponse<HabitTemplateResponse> {
+    return this.httpService.patch(`habit-templates/${id}`, { isPaused });
+  }
 }

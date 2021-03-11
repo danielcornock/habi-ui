@@ -26,6 +26,18 @@ const reducer = createReducer(
       ...state,
       templates: state.templates.filter((template) => template.id !== action.id)
     };
+  }),
+  on(HabitTemplatesActions.togglePauseTemplateSuccess, (state, action) => {
+    return {
+      ...state,
+      templates: state.templates.map((template) => {
+        if (template.id !== action.template.id) {
+          return template;
+        } else {
+          return action.template;
+        }
+      })
+    };
   })
 );
 

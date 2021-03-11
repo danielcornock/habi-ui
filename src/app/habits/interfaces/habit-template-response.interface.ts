@@ -3,4 +3,5 @@ export interface HabitTemplateResponse {
   title: string;
   flair: string;
   color: string;
+  isPaused: boolean;
 }

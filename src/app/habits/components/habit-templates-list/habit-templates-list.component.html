@@ -6,7 +6,7 @@
     [flair]="habit.flair"
     [color]="habit.color"
     (deleteTemplate)="onDeleteTemplate(habit.id)"
-    (hideTemplate)="onHideTemplate(habit.id)"
+    (hideTemplate)="onHideTemplate(habit.id, habit.isPaused)"
     (editTemplate)="onEditTemplate(habit.id)"
   ></habi-habit-template-item>
 </div>

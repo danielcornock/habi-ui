@@ -21,6 +21,18 @@ export class HttpService {
     return this.httpClient.post<T>(completeUrl, data);
   }
 
+  public put<T>(url: string, data: T): Observable<T> {
+    const completeUrl = this.generateUrl(url);
+
+    return this.httpClient.put<T>(completeUrl, data);
+  }
+
+  public patch<T>(url: string, data: any): Observable<T> {
+    const completeUrl = this.generateUrl(url);
+
+    return this.httpClient.patch<T>(completeUrl, data);
+  }
+
   public delete(url: string): Observable<void> {
     const completeUrl = this.generateUrl(url);
 
