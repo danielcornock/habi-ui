@@ -1,36 +1,59 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'habi-habit-template-item',
   templateUrl: './habit-template-item.component.html',
   styleUrls: ['./habit-template-item.component.scss']
 })
-export class HabitTemplateItemComponent implements OnInit {
+export class HabitTemplateItemComponent implements OnChanges {
   @Input()
-  title: string;
+  public title: string;
 
   @Input()
-  flair: string;
+  public flair: string;
 
   @Input()
-  color: string;
+  public color: string;
+
+  @Input()
+  public isPaused: boolean;
 
   @Output()
   public deleteTemplate = new EventEmitter<void>();
 
   @Output()
-  public hideTemplate = new EventEmitter<void>();
+  public pauseTemplate = new EventEmitter<void>();
+
+  @Output()
+  public resumeTemplate = new EventEmitter<void>();
 
   @Output()
   public editTemplate = new EventEmitter<void>();
 
   public actions: Array<{ icon: string; action(): void }>;
 
-  public ngOnInit(): void {
+  public ngOnChanges({ isPaused }: SimpleChanges): void {
+    if (!isPaused) {
+      return;
+    }
+
     this.actions = [
       {
-        icon: 'x',
-        action: () => this.hideTemplate.emit()
+        icon: this.isPaused ? 'play' : 'pause',
+        action: () => {
+          if (this.isPaused) {
+            this.resumeTemplate.emit();
+          } else {
+            this.pauseTemplate.emit();
+          }
+        }
       },
       {
         icon: 'edit',

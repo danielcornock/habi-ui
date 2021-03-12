@@ -30,15 +30,15 @@ export class HabitTemplatesListComponent implements OnInit {
 
   public onEditTemplate(id: string): void {}
 
-  public async onHideTemplate(
-    id: string,
-    isCurrentlyPaused: boolean
-  ): Promise<void> {
+  public pauseTemplate(id: string): void {
     this.store.dispatch(
-      HabitTemplatesActions.togglePauseTemplate({
-        id,
-        isPaused: !isCurrentlyPaused
+      HabitTemplatesActions.pauseTemplate({
+        id
       })
     );
+  }
+
+  public resumeTemplate(id: string): void {
+    this.store.dispatch(HabitTemplatesActions.resumeTemplate({ id }));
   }
 }

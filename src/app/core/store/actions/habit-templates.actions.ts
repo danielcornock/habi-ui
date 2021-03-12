@@ -31,14 +31,19 @@ const deleteTemplateSuccess = createAction(
   props<{ id: string }>()
 );
 
-const togglePauseTemplate = createAction(
+const pauseTemplate = createAction(
   `[Habit Templates] Pause template`,
-  props<{ id: string; isPaused: boolean }>()
+  props<{ id: string }>()
 );
 
 const togglePauseTemplateSuccess = createAction(
-  `[Habit Templates] Pause template success`,
+  `[Habit Templates] Toggle pause template success`,
   props<{ template: HabitTemplateResponse }>()
+);
+
+const resumeTemplate = createAction(
+  `[Habit Templates] Resume template`,
+  props<{ id: string }>()
 );
 
 export const HabitTemplatesActions = {
@@ -49,6 +54,7 @@ export const HabitTemplatesActions = {
   openTemplatelistPage,
   deleteTemplate,
   deleteTemplateSuccess,
-  togglePauseTemplate,
-  togglePauseTemplateSuccess
+  pauseTemplate,
+  togglePauseTemplateSuccess,
+  resumeTemplate
 };

@@ -5,8 +5,10 @@
     [title]="habit.title"
     [flair]="habit.flair"
     [color]="habit.color"
+    [isPaused]="habit.isPaused"
     (deleteTemplate)="onDeleteTemplate(habit.id)"
-    (hideTemplate)="onHideTemplate(habit.id, habit.isPaused)"
+    (pauseTemplate)="pauseTemplate(habit.id)"
+    (resumeTemplate)="resumeTemplate(habit.id)"
     (editTemplate)="onEditTemplate(habit.id)"
   ></habi-habit-template-item>
 </div>
