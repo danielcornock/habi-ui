@@ -23,7 +23,6 @@ export class CreateHabitModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.assignAction();
     this.createForm();
   }
 
@@ -61,14 +60,7 @@ export class CreateHabitModalComponent implements OnInit {
     ]);
   }
 
-  private assignAction(): void {
-    this.action = {
-      label: 'Create',
-      action: () => this.createTemplate()
-    };
-  }
-
-  private createTemplate(): void {
+  public createTemplate(): void {
     if (this.form.isInvalid) {
       this.form.formGroup.markAllAsTouched();
       return;

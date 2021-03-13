@@ -11,7 +11,7 @@
 
   &__picker {
     position: absolute;
-    top: calc(100% + 12px);
+    bottom: calc(100% + 12px);
     left: 50%;
     transform: translateX(-50%);
     width: 100%;

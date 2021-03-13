@@ -1,5 +1,5 @@
 <div class="habit-templates-list__container">
-  <habi-modal-header>Your Habits</habi-modal-header>
+  <habi-modal-header [action]="action">Your Habits</habi-modal-header>
   <habi-habit-template-item
     *ngFor="let habit of templates$ | async"
     [title]="habit.title"

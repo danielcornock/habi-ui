@@ -32,4 +32,10 @@
     font-weight: 600;
     color: $color-heading;
   }
+
+  &__icon {
+    color: $color-highlight;
+    line-height: 1;
+    @include icon(28px);
+  }
 }

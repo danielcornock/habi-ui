@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
 import { HabitTemplatesSelectors } from 'src/app/core/store/selectors/habit-templates.selectors';
+import { ModalHeaderAction } from 'src/app/shared/modal/interfaces/modal-header-action.interface';
 
 import { HabitTemplateResponse } from '../../interfaces/habit-template-response.interface';
 
@@ -13,11 +14,17 @@ import { HabitTemplateResponse } from '../../interfaces/habit-template-response.
 })
 export class HabitTemplatesListComponent implements OnInit {
   public templates$: Observable<HabitTemplateResponse[]>;
+  public action: ModalHeaderAction;
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.templates$ = this.store.select(HabitTemplatesSelectors.templates);
+    this.action = {
+      icon: 'plus',
+      action: () =>
+        this.store.dispatch(HabitTemplatesActions.openTemplateCreationForm())
+    };
   }
 
   public async onDeleteTemplate(id: string): Promise<void> {

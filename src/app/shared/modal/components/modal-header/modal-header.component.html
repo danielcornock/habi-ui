@@ -11,7 +11,12 @@
       *ngIf="action"
       (click)="action.action()"
     >
-      {{ action.label }}
+      <ng-container *ngIf="action.label; else icon">
+        {{ action.label }}
+      </ng-container>
+      <ng-template #icon>
+        <i-feather class="modal-header__icon" [name]="action.icon"></i-feather>
+      </ng-template>
     </button>
   </div>
 </div>
