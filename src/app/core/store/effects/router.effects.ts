@@ -15,9 +15,10 @@ export class RouterEffects {
       this.actions$.pipe(
         ofType(ROUTER_NAVIGATION),
         tap((action: RouterNavigationAction<RouterState>) => {
-          this.titleService.setTitle(
-            `Habi | ${action.payload.routerState.data.title}`
-          );
+          const pageTitle = action.payload.routerState.data?.title;
+
+          const suffix = pageTitle ? `| ${pageTitle}` : '';
+          this.titleService.setTitle(`Habi ${suffix}`);
         })
       ),
     { dispatch: false }

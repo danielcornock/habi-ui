@@ -12,7 +12,9 @@
   }
 
   &__scroll-view {
-    overflow-y: hidden;
+    overflow: hidden;
+    display: block;
+    flex: 1 1 100%;
   }
 
   &__nav {

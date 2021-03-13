@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { DateTime } from 'luxon';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CoreActions } from 'src/app/core/store/actions/core.actions';
 import { HabitRecordsActions } from 'src/app/core/store/actions/habit-records.actions';
-import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
 import { HabitRecordsSelectors } from 'src/app/core/store/selectors/habit-records.selectors';
 import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habit-record-response.interface';
 import { CalendarService } from 'src/app/shared/calendar/services/calendar/calendar.service';
@@ -15,7 +15,7 @@ import { CalendarService } from 'src/app/shared/calendar/services/calendar/calen
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.scss']
 })
-export class ProgressComponent implements OnInit {
+export class ProgressComponent implements OnInit, OnDestroy {
   public monthView;
   public records$: Observable<WeeklyHabitRecordResponse>;
 
@@ -25,7 +25,11 @@ export class ProgressComponent implements OnInit {
   private activeMonth;
   private activeYear;
 
-  constructor(private store: Store, private calendarService: CalendarService) {}
+  constructor(
+    private store: Store,
+    private calendarService: CalendarService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.store.dispatch(
@@ -33,7 +37,7 @@ export class ProgressComponent implements OnInit {
         headerAction: {
           icon: 'list',
           action: () => {
-            this.store.dispatch(HabitTemplatesActions.openTemplatelistPage());
+            this.router.navigateByUrl('habits/templates');
           }
         }
       })
@@ -53,6 +57,14 @@ export class ProgressComponent implements OnInit {
           this.activeMonth,
           this.activeYear
         );
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.store.dispatch(
+      CoreActions.setHeaderAction({
+        headerAction: null
       })
     );
   }

@@ -33,6 +33,11 @@ const routes: Routes = [
         path: 'settings',
         loadChildren: () =>
           import('./settings/settings.module').then((m) => m.SettingsModule)
+      },
+      {
+        path: 'habits',
+        loadChildren: () =>
+          import('./habits/habits.module').then((m) => m.HabitsModule)
       }
     ]
   }

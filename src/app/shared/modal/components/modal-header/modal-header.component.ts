@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 import { ModalHeaderAction } from '../../interfaces/modal-header-action.interface';
@@ -14,9 +15,16 @@ export class ModalHeaderComponent<T> implements OnInit {
 
   ngOnInit(): void {}
 
-  constructor(private dialogRef: MatBottomSheetRef<T>) {}
+  constructor(
+    @Optional() private dialogRef: MatBottomSheetRef<T>,
+    private locationService: Location
+  ) {}
 
   public closeModal(): void {
-    this.dialogRef.dismiss();
+    if (this.dialogRef) {
+      this.dialogRef.dismiss();
+    } else {
+      this.locationService.back();
+    }
   }
 }

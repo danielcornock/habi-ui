@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { HabitTemplatesActions } from 'src/app/core/store/actions/habit-templates.actions';
@@ -15,10 +14,7 @@ import { HabitTemplateResponse } from '../../interfaces/habit-template-response.
 export class HabitTemplatesListComponent implements OnInit {
   public templates$: Observable<HabitTemplateResponse[]>;
 
-  constructor(
-    private store: Store,
-    private bottomSheetRef: MatBottomSheetRef
-  ) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.templates$ = this.store.select(HabitTemplatesSelectors.templates);

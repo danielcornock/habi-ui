@@ -11,6 +11,7 @@ import { DailyHabitComponent } from './components/daily-habit/daily-habit.compon
 import { HabitTemplateItemComponent } from './components/habit-template-item/habit-template-item.component';
 import { HabitTemplatesListComponent } from './components/habit-templates-list/habit-templates-list.component';
 import { HabitsListComponent } from './components/habits-list/habits-list.component';
+import { HabitsRoutingModule } from './habits-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HabitsListComponent } from './components/habits-list/habits-list.compon
     ReactiveFormsModule,
     NgxFormTrooperModule,
     IconModule,
-    FormInputModule
+    FormInputModule,
+    HabitsRoutingModule
   ],
   exports: [DailyHabitComponent, HabitsListComponent]
 })

@@ -1,7 +1,10 @@
 <div class="authenticated-view__container">
   <habi-header class="authenticated-view__header"></habi-header>
-  <div class="authenticated-view__scroll-view">
-    <router-outlet></router-outlet>
+  <div
+    class="authenticated-view__scroll-view"
+    [@routeAnimations]="prepareRoute(outlet)"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
   <habi-nav-menu class="authenticated-view__nav"></habi-nav-menu>
 </div>
