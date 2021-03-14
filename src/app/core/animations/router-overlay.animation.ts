@@ -16,8 +16,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%',
-          zIndex: 500
+          width: '100%'
         }),
         animate(
           '300ms ease-out',
@@ -31,8 +30,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           position: 'fixed',
           top: 0,
           left: '100%',
-          width: '100%',
-          zIndex: '1000'
+          width: '100%'
         }),
         animate(
           '300ms ease-out',
@@ -51,8 +49,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           position: 'fixed',
           top: 0,
           left: '0%',
-          width: '100%',
-          zIndex: '1000'
+          width: '100%'
         }),
         animate('300ms ease-out', style({ left: '100%' }))
       ]),
@@ -62,7 +59,6 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           top: 0,
           left: 0,
           width: '100%',
-          zIndex: 500,
           opacity: 0
         }),
         animate(
@@ -71,6 +67,58 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
             opacity: 1
           })
         )
+      ])
+    ])
+  ]),
+  transition(':increment', [
+    group([
+      query(':enter', [
+        style({
+          position: 'absolute',
+          top: 0,
+          height: '100%',
+          width: '100%',
+          left: '5%',
+          opacity: '0'
+        }),
+        animate('300ms ease-out', style({ left: '0', opacity: '1' }))
+      ]),
+      query(':leave', [
+        style({
+          position: 'absolute',
+          top: 0,
+          width: '100%',
+          height: '100%',
+          opacity: '1',
+          left: '0'
+        }),
+        animate('300ms ease-out', style({ opacity: '0', left: '-5%' }))
+      ])
+    ])
+  ]),
+  transition(':decrement', [
+    group([
+      query(':enter', [
+        style({
+          position: 'absolute',
+          top: 0,
+          height: '100%',
+          width: '100%',
+          left: '-5%',
+          opacity: '0'
+        }),
+        animate('300ms ease-out', style({ left: '0', opacity: '1' }))
+      ]),
+      query(':leave', [
+        style({
+          position: 'absolute',
+          top: 0,
+          width: '100%',
+          height: '100%',
+          opacity: '1',
+          left: '0'
+        }),
+        animate('300ms ease-out', style({ opacity: '0', left: '5%' }))
       ])
     ])
   ])

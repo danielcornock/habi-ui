@@ -21,16 +21,19 @@ const routes: Routes = [
       },
       {
         path: 'progress',
+        data: { animation: 2 },
         loadChildren: () =>
           import('./progress/progress.module').then((m) => m.ProgressModule)
       },
       {
         path: 'home',
+        data: { animation: 1 },
         loadChildren: () =>
           import('./home/home.module').then((m) => m.HomeModule)
       },
       {
         path: 'settings',
+        data: { animation: 4 },
         loadChildren: () =>
           import('./settings/settings.module').then((m) => m.SettingsModule)
       },

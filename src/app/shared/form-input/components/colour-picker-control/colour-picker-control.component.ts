@@ -67,7 +67,6 @@ export class ColourPickerControlComponent
   }
 
   public writeValue(data: string): void {
-    console.log(data);
     this.highlightSelectedValue(data);
     this.value = data;
   }
