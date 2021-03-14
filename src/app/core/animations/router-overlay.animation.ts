@@ -81,7 +81,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           left: '5%',
           opacity: '0'
         }),
-        animate('300ms ease-out', style({ left: '0', opacity: '1' }))
+        animate('200ms ease-out', style({ left: '0', opacity: '1' }))
       ]),
       query(':leave', [
         style({
@@ -92,7 +92,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           opacity: '1',
           left: '0'
         }),
-        animate('300ms ease-out', style({ opacity: '0', left: '-5%' }))
+        animate('200ms ease-out', style({ opacity: '0', left: '-5%' }))
       ])
     ])
   ]),
@@ -107,7 +107,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           left: '-5%',
           opacity: '0'
         }),
-        animate('300ms ease-out', style({ left: '0', opacity: '1' }))
+        animate('200ms ease-out', style({ left: '0', opacity: '1' }))
       ]),
       query(':leave', [
         style({
@@ -118,7 +118,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           opacity: '1',
           left: '0'
         }),
-        animate('300ms ease-out', style({ opacity: '0', left: '5%' }))
+        animate('200ms ease-out', style({ opacity: '0', left: '5%' }))
       ])
     ])
   ])
