@@ -51,7 +51,12 @@ export class ProgressComponent implements OnInit, OnDestroy {
           HabitRecordsSelectors.monthlyRecords(month)
         );
         this.store.dispatch(HabitRecordsActions.fetchMonthlyHabits({ month }));
-        this.selectDay(DateTime.local().day);
+
+        if (dateObj.hasSame(DateTime.local(), 'month')) {
+          this.selectDay(DateTime.local().day);
+        } else {
+          this.selectDay(1);
+        }
 
         this.monthView = this.calendarService.generateCalendarArray(
           this.activeMonth,

@@ -6,11 +6,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 14px $spacing-16;
-    background-color: $color-highlight;
-    color: $color-white;
+    color: $color-subheading;
+  }
+
+  &__month {
+    color: $color-highlight;
   }
 
   &__button {
-    color: rgba($color-white, 0.8);
+    color: $color-highlight;
+
+    i-feather {
+      @include icon(20px);
+    }
   }
 }
