@@ -1,10 +1,16 @@
 @import 'src/assets/styles/themes.scss';
 
+:host {
+  padding: 0 $spacing-12;
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $color-light-grey;
+}
+
 .modal-header {
   &__container {
     position: relative;
     padding: 20px 0;
-    margin-bottom: 20px;
   }
 
   &__buttons {

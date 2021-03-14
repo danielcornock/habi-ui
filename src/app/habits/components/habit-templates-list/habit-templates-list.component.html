@@ -1,14 +1,16 @@
 <div class="habit-templates-list__container">
   <habi-modal-header [action]="action">Your Habits</habi-modal-header>
-  <habi-habit-template-item
-    *ngFor="let habit of templates$ | async"
-    [title]="habit.title"
-    [flair]="habit.flair"
-    [color]="habit.color"
-    [isPaused]="habit.isPaused"
-    (deleteTemplate)="onDeleteTemplate(habit.id)"
-    (pauseTemplate)="pauseTemplate(habit.id)"
-    (resumeTemplate)="resumeTemplate(habit.id)"
-    (editTemplate)="onEditTemplate(habit.id)"
-  ></habi-habit-template-item>
+  <div class="habit-templates-list__list">
+    <habi-habit-template-item
+      *ngFor="let habit of templates$ | async"
+      [title]="habit.title"
+      [flair]="habit.flair"
+      [color]="habit.color"
+      [isPaused]="habit.isPaused"
+      (deleteTemplate)="onDeleteTemplate(habit.id)"
+      (pauseTemplate)="pauseTemplate(habit.id)"
+      (resumeTemplate)="resumeTemplate(habit.id)"
+      (editTemplate)="onEditTemplate(habit.id)"
+    ></habi-habit-template-item>
+  </div>
 </div>

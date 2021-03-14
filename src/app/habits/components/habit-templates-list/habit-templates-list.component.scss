@@ -3,3 +3,9 @@
 :host {
   @include overlay-page;
 }
+
+.habit-templates-list {
+  &__list {
+    @include page-container;
+  }
+}
