@@ -49,7 +49,8 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           position: 'fixed',
           top: 0,
           left: '0%',
-          width: '100%'
+          width: '100%',
+          zIndex: 1000
         }),
         animate('200ms ease-out', style({ left: '100%' }))
       ]),
