@@ -8,7 +8,9 @@ const initialState: HabitRecordsState = {
   days: {},
   activeMonth: DateTime.local()
     .toISODate()
-    .slice(0, -3)
+    .slice(0, -3),
+  hasFetchedWeek: false,
+  fetchedMonths: []
 };
 
 const reducer = createReducer(
@@ -19,7 +21,18 @@ const reducer = createReducer(
       days: {
         ...state.days,
         ...action.records
-      }
+      },
+      hasFetchedWeek: true
+    };
+  }),
+  on(HabitRecordsActions.fetchMonthlyHabitsSuccess, (state, action) => {
+    return {
+      ...state,
+      days: {
+        ...state.days,
+        ...action.records
+      },
+      fetchedMonths: [...state.fetchedMonths, action.month]
     };
   }),
   on(HabitRecordsActions.setHabitCompletedSuccess, (state, action) => {

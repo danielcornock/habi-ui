@@ -3,4 +3,6 @@ import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habi
 export interface HabitRecordsState {
   days: WeeklyHabitRecordResponse;
   activeMonth: string;
+  hasFetchedWeek: boolean;
+  fetchedMonths: Array<string>;
 }

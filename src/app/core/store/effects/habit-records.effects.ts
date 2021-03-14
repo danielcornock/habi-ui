@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { DateTime } from 'luxon';
-import { map, switchMap } from 'rxjs/operators';
+import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { HabitsApiService } from 'src/app/habits/services/habits-api/habits-api.service';
 
 import { HabitRecordsActions } from '../actions/habit-records.actions';
+import { HabitRecordsSelectors } from '../selectors/habit-records.selectors';
 
 @Injectable()
 export class HabitRecordsEffects {
   constructor(
     private actions$: Actions,
-    private habitsApiService: HabitsApiService
+    private habitsApiService: HabitsApiService,
+    private store: Store
   ) {}
 
   fetchWeeklyHabits$ = createEffect(() =>
     this.actions$.pipe(
       ofType(HabitRecordsActions.fetchWeeklyHabits),
-      switchMap(() =>
-        this.habitsApiService
+      withLatestFrom(this.store.select(HabitRecordsSelectors.hasLoadedWeek)),
+      filter(([_, hasLoaded]) => !hasLoaded),
+      switchMap(() => {
+        return this.habitsApiService
           .getHabitsInRange(
             DateTime.local()
               .minus({ days: 7 })
@@ -30,15 +35,19 @@ export class HabitRecordsEffects {
                 records: data.data
               })
             )
-          )
-      )
+          );
+      })
     )
   );
 
   fetchMonthlyHabits$ = createEffect(() =>
     this.actions$.pipe(
       ofType(HabitRecordsActions.fetchMonthlyHabits),
-      switchMap(({ month }) => {
+      withLatestFrom(
+        this.store.select(HabitRecordsSelectors.monthsAlreadyLoaded)
+      ),
+      filter(([{ month }, loadedMonths]) => !loadedMonths.includes(month)),
+      switchMap(([{ month }]) => {
         const firstDay = DateTime.fromISO(month);
         return this.habitsApiService
           .getHabitsInRange(
@@ -47,7 +56,10 @@ export class HabitRecordsEffects {
           )
           .pipe(
             map(({ data }) =>
-              HabitRecordsActions.fetchWeeklyHabitsSuccess({ records: data })
+              HabitRecordsActions.fetchMonthlyHabitsSuccess({
+                records: data,
+                month
+              })
             )
           );
       })

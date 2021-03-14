@@ -32,8 +32,20 @@ const activeMonth = createSelector(
   (state: HabitRecordsState) => state.activeMonth
 );
 
+const hasLoadedWeek = createSelector(
+  selectHabitRecordsState,
+  (state) => state.hasFetchedWeek
+);
+
+const monthsAlreadyLoaded = createSelector(
+  selectHabitRecordsState,
+  (state) => state.fetchedMonths
+);
+
 export const HabitRecordsSelectors = {
   dailyHabitRecords,
   activeMonth,
-  monthlyRecords
+  monthlyRecords,
+  hasLoadedWeek,
+  monthsAlreadyLoaded
 };
