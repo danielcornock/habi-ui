@@ -12,5 +12,11 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.authService.initialise();
+
+    if (window.innerWidth > 600) {
+      alert(
+        'Please be aware, this site is made for mobiles. Experiences on a tablet or desktop may vary.'
+      );
+    }
   }
 }
