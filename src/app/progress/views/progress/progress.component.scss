@@ -1,5 +1,9 @@
 @import 'src/assets/styles/themes.scss';
 
+:host {
+  @include main-page;
+}
+
 .progress {
   &__container {
     display: flex;
