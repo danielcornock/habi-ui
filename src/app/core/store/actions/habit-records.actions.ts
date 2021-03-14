@@ -44,6 +44,8 @@ const setActiveMonth = createAction(
   props<{ month: string }>()
 );
 
+const resetActiveMonth = createAction('[Habit Records] Reset active month');
+
 export const HabitRecordsActions = {
   fetchWeeklyHabits,
   fetchWeeklyHabitsSuccess,
@@ -53,5 +55,6 @@ export const HabitRecordsActions = {
   setHabitIncompleteSuccess,
   fetchMonthlyHabits,
   fetchMonthlyHabitsSuccess,
-  setActiveMonth
+  setActiveMonth,
+  resetActiveMonth
 };

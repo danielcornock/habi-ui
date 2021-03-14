@@ -63,6 +63,12 @@ const reducer = createReducer(
       ...state,
       activeMonth: action.month
     };
+  }),
+  on(HabitRecordsActions.resetActiveMonth, (state) => {
+    return {
+      ...state,
+      activeMonth: initialState.activeMonth
+    };
   })
 );
 

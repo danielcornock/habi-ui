@@ -72,6 +72,8 @@ export class ProgressComponent implements OnInit, OnDestroy {
         headerAction: null
       })
     );
+
+    this.store.dispatch(HabitRecordsActions.resetActiveMonth());
   }
 
   public selectDay(day: number): void {
