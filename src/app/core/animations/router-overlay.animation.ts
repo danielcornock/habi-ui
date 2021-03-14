@@ -19,7 +19,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           width: '100%'
         }),
         animate(
-          '300ms ease-out',
+          '200ms ease-out',
           style({
             opacity: 0
           })
@@ -33,7 +33,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           width: '100%'
         }),
         animate(
-          '300ms ease-out',
+          '200ms ease-out',
           style({
             left: '0%'
           })
@@ -51,7 +51,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           left: '0%',
           width: '100%'
         }),
-        animate('300ms ease-out', style({ left: '100%' }))
+        animate('200ms ease-out', style({ left: '100%' }))
       ]),
       query(':enter', [
         style({
@@ -62,7 +62,7 @@ export const routerOverlayAnimation = trigger('routeAnimations', [
           opacity: 0
         }),
         animate(
-          '300ms ease-out',
+          '200ms ease-out',
           style({
             opacity: 1
           })
