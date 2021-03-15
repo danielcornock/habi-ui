@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       CoreActions.setHeaderAction({
         headerAction: {
-          icon: 'list',
+          icon: 'edit',
           action: () => {
             this.router.navigateByUrl('habits/templates');
           }
