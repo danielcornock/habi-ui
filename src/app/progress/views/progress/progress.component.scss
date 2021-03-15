@@ -21,7 +21,7 @@
   &__calendar {
     @include page-container;
     display: block;
-    padding: 12px 0;
+    padding-bottom: 12px;
     margin-bottom: 12px;
     border-bottom: 1px solid $color-border;
     border-radius: 0 0 $br-sm $br-sm;

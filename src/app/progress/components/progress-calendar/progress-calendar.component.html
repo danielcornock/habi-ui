@@ -1,27 +1,21 @@
 <div class="progress-calendar__container">
-  <!-- <div class="progress-calendar__weekdays">
-    <div class="progress-calendar__weekday" *ngFor="let day of weekdays">
-      {{ day }}
-    </div>
-  </div> -->
-
   <div class="progress-calendar__calendar">
     <button
       class="progress-calendar__day"
-      *ngFor="let item of formattedMonthItems"
+      *ngFor="let item of formattedMonthItems; trackBy: trackByFn"
       (click)="onSelectDay(item)"
     >
       <div
-        class="progress-calendar__inner"
-        [class.is-selected]="item?.date.day === selectedDay"
-      >
-        <p class="progress-calendar__day-text">
-          {{ item?.date.day }}
-        </p>
-        <p class="progress-calendar__day-count" *ngIf="item?.count">
-          {{ item?.count }}
-        </p>
-      </div>
+        class="progress-calendar__bubble"
+        style="--bubbleSize: {{ getBubbleSize(item) }}"
+      ></div>
+      <p class="progress-calendar__day-text">
+        {{ item?.date.day }}
+      </p>
+      <div
+        class="progress-calendar__selected"
+        *ngIf="item?.date.day === selectedDay"
+      ></div>
     </button>
   </div>
 </div>

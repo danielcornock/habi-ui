@@ -9,6 +9,7 @@
     [calendar]="monthView"
     [records]="records$ | async"
     [selectedDay]="selectedDay"
+    [templatesCount]="templatesCount$ | async"
     (selectDay)="selectDay($event)"
   ></habi-progress-calendar>
   <habi-habits-list

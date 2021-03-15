@@ -7,6 +7,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { DateTime } from 'luxon';
+import { Observable } from 'rxjs';
 import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habit-record-response.interface';
 
 @Component({
@@ -24,11 +25,14 @@ export class ProgressCalendarComponent implements OnChanges {
   @Input()
   public selectedDay: number;
 
+  @Input()
+  public templatesCount: number;
+
   @Output()
   public selectDay = new EventEmitter<number>();
 
-  public weekdays = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   public formattedMonthItems: Array<{ date: DateTime; count: number } | null>;
+  public templatesCount$: Observable<number>;
 
   public ngOnChanges({ calendar, records }: SimpleChanges): void {
     if (calendar || records) {
@@ -40,6 +44,18 @@ export class ProgressCalendarComponent implements OnChanges {
     if (item) {
       this.selectDay.emit(item.date.day);
     }
+  }
+
+  public getBubbleSize(item: { date: DateTime; count: number }): number {
+    if (item?.count) {
+      return item.count / this.templatesCount + 0.4;
+    } else {
+      return 0;
+    }
+  }
+
+  public trackByFn(item: { date: DateTime; count: number }): any {
+    return item.count;
   }
 
   private processCalendar(): void {

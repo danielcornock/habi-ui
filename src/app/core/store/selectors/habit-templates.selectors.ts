@@ -10,6 +10,12 @@ const templates = createSelector(
   (state: HabitTemplatesState) => state.templates
 );
 
+const templatesCount = createSelector(
+  selectHabitTemplates,
+  (state) => state.templates.length
+);
+
 export const HabitTemplatesSelectors = {
-  templates
+  templates,
+  templatesCount
 };

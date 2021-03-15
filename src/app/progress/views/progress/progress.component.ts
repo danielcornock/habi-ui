@@ -7,6 +7,7 @@ import { tap } from 'rxjs/operators';
 import { CoreActions } from 'src/app/core/store/actions/core.actions';
 import { HabitRecordsActions } from 'src/app/core/store/actions/habit-records.actions';
 import { HabitRecordsSelectors } from 'src/app/core/store/selectors/habit-records.selectors';
+import { HabitTemplatesSelectors } from 'src/app/core/store/selectors/habit-templates.selectors';
 import { WeeklyHabitRecordResponse } from 'src/app/habits/interfaces/weekly-habit-record-response.interface';
 import { CalendarService } from 'src/app/shared/calendar/services/calendar/calendar.service';
 
@@ -22,6 +23,8 @@ export class ProgressComponent implements OnInit, OnDestroy {
   public selectedDate: DateTime;
   public selectedDay;
   public isoMonth$: Observable<string>;
+  public templatesCount$: Observable<number>;
+
   private activeMonth;
   private activeYear;
 
@@ -32,36 +35,12 @@ export class ProgressComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(
-      CoreActions.setHeaderAction({
-        headerAction: {
-          icon: 'edit',
-          action: () => {
-            this.router.navigateByUrl('habits/templates');
-          }
-        }
-      })
-    );
+    this.setHeaderAction();
+    this.getTemplatesCount();
+
     this.isoMonth$ = this.store.select(HabitRecordsSelectors.activeMonth).pipe(
       tap((month) => {
-        const dateObj = DateTime.fromISO(month);
-        this.activeMonth = dateObj.month;
-        this.activeYear = dateObj.year;
-        this.records$ = this.store.select(
-          HabitRecordsSelectors.monthlyRecords(month)
-        );
-        this.store.dispatch(HabitRecordsActions.fetchMonthlyHabits({ month }));
-
-        if (dateObj.hasSame(DateTime.local(), 'month')) {
-          this.selectDay(DateTime.local().day);
-        } else {
-          this.selectDay(1);
-        }
-
-        this.monthView = this.calendarService.generateCalendarArray(
-          this.activeMonth,
-          this.activeYear
-        );
+        this.initialiseMonthlyRecords(month);
       })
     );
   }
@@ -83,5 +62,45 @@ export class ProgressComponent implements OnInit, OnDestroy {
 
   public onChangeMonth(month: string): void {
     this.store.dispatch(HabitRecordsActions.setActiveMonth({ month }));
+  }
+
+  private getTemplatesCount(): void {
+    this.templatesCount$ = this.store.select(
+      HabitTemplatesSelectors.templatesCount
+    );
+  }
+
+  private initialiseMonthlyRecords(month: string): void {
+    const dateObj = DateTime.fromISO(month);
+    this.activeMonth = dateObj.month;
+    this.activeYear = dateObj.year;
+    this.records$ = this.store.select(
+      HabitRecordsSelectors.monthlyRecords(month)
+    );
+    this.store.dispatch(HabitRecordsActions.fetchMonthlyHabits({ month }));
+
+    if (dateObj.hasSame(DateTime.local(), 'month')) {
+      this.selectDay(DateTime.local().day);
+    } else {
+      this.selectDay(1);
+    }
+
+    this.monthView = this.calendarService.generateCalendarArray(
+      this.activeMonth,
+      this.activeYear
+    );
+  }
+
+  private setHeaderAction(): void {
+    this.store.dispatch(
+      CoreActions.setHeaderAction({
+        headerAction: {
+          icon: 'edit',
+          action: () => {
+            this.router.navigateByUrl('habits/templates');
+          }
+        }
+      })
+    );
   }
 }

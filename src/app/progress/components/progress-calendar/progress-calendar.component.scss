@@ -1,19 +1,6 @@
 @import 'src/assets/styles/themes.scss';
 
 .progress-calendar {
-  &__weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    background-color: $color-highlight;
-    color: $color-white;
-    border-radius: $br-sm;
-  }
-
-  &__weekday {
-    text-align: center;
-    padding: 12px 0;
-  }
-
   &__calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -27,37 +14,37 @@
     position: relative;
   }
 
-  &__day-count {
+  &__selected {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    color: $color-white;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: $color-highlight;
     border-radius: $br-max;
-    height: 14px;
-    width: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    line-height: 1;
+    height: 8px;
+    width: 8px;
   }
 
-  &__inner {
+  &__bubble {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    height: 40px;
-    width: 40px;
+    transform: translate(-50%, -50%) scale(var(--bubbleSize));
+    transform-origin: center;
+    transition: 250ms ease-out;
+    height: 50px;
+    width: 50px;
+    background-color: rgba($color-highlight, 0.1);
     border-radius: $br-max;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    animation: bubble-in 500ms forwards ease-out;
+  }
+}
 
-    &.is-selected {
-      color: $color-highlight;
-      background-color: rgba($color-highlight, 0.2);
-    }
+@keyframes bubble-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
