@@ -5,6 +5,7 @@ import { HttpResponse } from 'src/app/core/interfaces/http-response.interface';
 
 import { HttpService } from '../../../core/services/http/http.service';
 import { HabitRecordResponse } from '../../interfaces/habit-record-response.interface';
+import { HabitTemplatePayload } from '../../interfaces/habit-template-payload.interface';
 import { HabitTemplateResponse } from '../../interfaces/habit-template-response.interface';
 import { WeeklyHabitRecordResponse } from '../../interfaces/weekly-habit-record-response.interface';
 
@@ -43,12 +44,17 @@ export class HabitsApiService {
     return this.httpService.delete(`habit-records/${recordId}`);
   }
 
-  public createHabitTemplate(template: {
-    title: string;
-    flair: string;
-    color: string;
-  }): HttpResponse<HabitTemplateResponse> {
+  public createHabitTemplate(
+    template: HabitTemplatePayload
+  ): HttpResponse<HabitTemplateResponse> {
     return this.httpService.post('habit-templates', template);
+  }
+
+  public updateHabitTemplate(
+    id: string,
+    template: HabitTemplatePayload
+  ): HttpResponse<HabitTemplateResponse> {
+    return this.httpService.patch(`habit-templates/${id}`, template);
   }
 
   public deleteHabitTemplate(id: string): Observable<void> {

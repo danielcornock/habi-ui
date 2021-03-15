@@ -1,8 +1,9 @@
 <div class="create-habit-modal__container">
   <form
+    *ngIf="form"
     [formGroup]="form.formGroup"
     class="create-habit-modal__form"
-    (ngSubmit)="createTemplate()"
+    (ngSubmit)="submitForm()"
   >
     <ngx-form-input [formInputField]="form.fields[0]"></ngx-form-input>
     <habi-form-input-color-select [formInputField]="form.fields[1]">
@@ -10,6 +11,6 @@
     <habi-form-input-emoji
       [formInputField]="form.fields[2]"
     ></habi-form-input-emoji>
-    <button class="u-cta-button create-habit-modal__save">Create habit</button>
+    <button class="u-cta-button create-habit-modal__save">Save habit</button>
   </form>
 </div>

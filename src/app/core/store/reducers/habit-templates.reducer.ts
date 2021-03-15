@@ -21,6 +21,18 @@ const reducer = createReducer(
       templates: [...state.templates, action.template]
     };
   }),
+  on(HabitTemplatesActions.editTemplateSuccess, (state, action) => {
+    return {
+      ...state,
+      templates: state.templates.map((template) => {
+        if (template.id !== action.template.id) {
+          return template;
+        } else {
+          return action.template;
+        }
+      })
+    };
+  }),
   on(HabitTemplatesActions.deleteTemplateSuccess, (state, action) => {
     return {
       ...state,

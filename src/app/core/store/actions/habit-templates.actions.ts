@@ -17,8 +17,14 @@ const openTemplateCreationForm = createAction(
   '[Habit Templates] Open template creation form'
 );
 
-const openTemplatelistPage = createAction(
-  `[Habit Templates] Open template list page`
+const openTemplateEditForm = createAction(
+  '[Habit Templates] Open template edit form',
+  props<{ template: HabitTemplateResponse }>()
+);
+
+const editTemplateSuccess = createAction(
+  '[Habit Templates] Edit templates success',
+  props<{ template: HabitTemplateResponse }>()
 );
 
 const deleteTemplate = createAction(
@@ -50,11 +56,12 @@ export const HabitTemplatesActions = {
   fetchTemplates,
   fetchTemplatesSuccess,
   openTemplateCreationForm,
+  openTemplateEditForm,
   createTemplateSuccess,
-  openTemplatelistPage,
   deleteTemplate,
   deleteTemplateSuccess,
   pauseTemplate,
   togglePauseTemplateSuccess,
-  resumeTemplate
+  resumeTemplate,
+  editTemplateSuccess
 };

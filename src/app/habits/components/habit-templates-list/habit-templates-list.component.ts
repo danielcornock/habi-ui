@@ -31,7 +31,11 @@ export class HabitTemplatesListComponent implements OnInit {
     this.store.dispatch(HabitTemplatesActions.deleteTemplate({ id }));
   }
 
-  public onEditTemplate(id: string): void {}
+  public onEditTemplate(template: HabitTemplateResponse): void {
+    this.store.dispatch(
+      HabitTemplatesActions.openTemplateEditForm({ template })
+    );
+  }
 
   public pauseTemplate(id: string): void {
     this.store.dispatch(

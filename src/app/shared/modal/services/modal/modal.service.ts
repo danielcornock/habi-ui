@@ -1,6 +1,5 @@
 import { Injectable, Type } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { forEach } from 'lodash';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -12,14 +11,9 @@ export class ModalService {
     data?: TData
   ): Observable<TReturn> {
     const ref = this.matBottomSheet.open(component, {
-      panelClass: 'modal-full-screen-panel'
+      panelClass: 'modal-full-screen-panel',
+      data: data || {}
     });
-
-    if (data) {
-      forEach(data, (input, key) => {
-        ref.instance[key] = input;
-      });
-    }
 
     return ref.afterDismissed();
   }
