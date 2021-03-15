@@ -4,6 +4,8 @@
   &__title {
     font-size: $font-sizing-title;
     line-height: 1;
+    font-weight: 600;
+    letter-spacing: -1px;
   }
 
   &__container {
