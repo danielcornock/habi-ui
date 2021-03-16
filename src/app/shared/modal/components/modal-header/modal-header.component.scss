@@ -4,13 +4,13 @@
   padding: 0 $spacing-12;
   display: block;
   margin-bottom: 20px;
-  border-bottom: 1px solid $color-light-grey;
+  box-shadow: 2px 2px 4px rgba(black, 0.1);
 }
 
 .modal-header {
   &__container {
     position: relative;
-    padding: 20px 0;
+    padding: 16px 0;
   }
 
   &__buttons {
